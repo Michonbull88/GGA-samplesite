@@ -10,76 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 
-  <style>
-    :root {
-      --map: #b5d98b;
-      --map-fill: rgba(181, 217, 139, .12);
-      --map-hover: #8fcf4f;
-      --map-hover-fill: rgba(143, 207, 79, .42);
-      --tooltip-bg: #17231b;
-      --tooltip-text: #fff;
-    }
-
-    .africa-map-wrap {
-      position: relative;
-      width: min(100%, 900px);
-      margin: 40px auto;
-      padding: 16px;
-    }
-
-    #africa-map { width: 100%; height: auto; display: block; }
-
-    #africa-map .country {
-      fill: var(--map-fill);
-      stroke: var(--map);
-      stroke-opacity: .45;
-      stroke-width: 1.5;
-      stroke-linejoin: round;
-      vector-effect: non-scaling-stroke;
-      cursor: pointer;
-      transition: fill .18s ease, stroke .18s ease, filter .18s ease;
-      outline: none;
-    }
-
-    #africa-map .country:hover,
-    #africa-map .country:focus-visible,
-    #africa-map .country.is-active {
-      fill: var(--map-hover-fill);
-      stroke: var(--map-hover);
-      stroke-opacity: 1;
-      stroke-width: 2.4;
-      filter: drop-shadow(0 0 5px rgba(143, 207, 79, .55));
-    }
-
-    #africa-map .outer {
-      fill: none;
-      stroke: var(--map);
-      stroke-width: 3.5;
-      stroke-linejoin: round;
-      vector-effect: non-scaling-stroke;
-    }
-
-    .country-tooltip {
-      position: fixed;
-      z-index: 1000;
-      display: none;
-      min-width: 220px;
-      max-width: 290px;
-      padding: 12px 14px;
-      border: 1px solid rgba(181,217,139,.35);
-      border-radius: 10px;
-      background: var(--tooltip-bg);
-      color: var(--tooltip-text);
-      box-shadow: 0 10px 30px rgba(0,0,0,.28);
-      pointer-events: none;
-      transform: translate(14px, 14px);
-    }
-
-    .country-tooltip strong { display: block; font-size: 16px; margin-bottom: 6px; color: var(--map-hover); }
-    .country-tooltip span { display: block; font-size: 13px; line-height: 1.45; color: #e8eee9; }
-    .country-tooltip .hint { margin-top: 7px; font-size: 11px; opacity: .72; }
-  </style>
-  
 </head>
 <body>
   <div class="announcement">
@@ -129,11 +59,9 @@
           </div>
         </div>
 
+        
         <div class="hero__visual reveal">
   <div class="africa-art">
-
-
-
 
   <div class="africa-map-wrap">
 <svg id="africa-map" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-label="Map of Africa">
