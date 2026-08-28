@@ -3393,91 +3393,166 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
   }
 }
 /* =========================================================
-   PALE CORPORATE AFRICA MAP COLOUR SYSTEM
-   Muted, professional, clean — no glow
+   AFRICA MAP COLOUR SYSTEM
+   Original multi-region colours restored
+   Keeps the corporate look while retaining clear regions
 ========================================================= */
 
 :root {
-  --map-border: #d7ded3;
+  --map-border: #b5d98b;
 
-  --northwest-africa: #c9c2aa;
-  --north-africa: #cdb5ad;
-  --central-africa: #aebfaf;
-  --southern-africa: #b7c5ad;
+  /* Original regional palette */
+  --northwest-africa: rgba(219, 167, 74, 0.38);
+  --north-africa: rgba(224, 119, 91, 0.38);
+  --central-africa: rgba(83, 156, 176, 0.38);
+  --southern-africa: rgba(117, 170, 94, 0.38);
 
-  --map-hover: #a9bd95;
+  --map-hover: #8fcf4f;
+  --map-hover-fill: rgba(143, 207, 79, 0.68);
 
-  --tooltip-bg: #243029;
-  --tooltip-text: #f7f8f5;
+  --tooltip-bg: #17231b;
+  --tooltip-text: #ffffff;
 }
+
 
 /* =========================================================
    BASE COUNTRY APPEARANCE
 ========================================================= */
 
 #africa-map .country {
-  stroke: #edf0eb !important;
-  stroke-width: 0.7 !important;
+  stroke: rgba(235, 241, 232, 0.82) !important;
+  stroke-width: 0.85 !important;
+  stroke-opacity: 0.85 !important;
 
   fill-opacity: 1 !important;
 
   transition:
     fill 0.18s ease,
-    stroke 0.18s ease !important;
+    stroke 0.18s ease,
+    stroke-opacity 0.18s ease,
+    stroke-width 0.18s ease !important;
 
-  /* No glow, shadow or brightness effects */
   filter: none !important;
+
+  transform: none !important;
+  translate: none !important;
+  scale: 1 !important;
 }
+
 
 /* =========================================================
    REGIONAL COLOURS
-   Pale, understated and professional
 ========================================================= */
 
+/* NORTH-WEST / WEST AFRICA — GOLD */
 #africa-map .country[data-region="northwest-africa"],
-#africa-map .northwest-africa {
-  fill: #c9c2aa !important;
+#africa-map .northwest-africa,
+#africa-map #western-sahara,
+#africa-map #mauritania,
+#africa-map #senegal,
+#africa-map #gambia,
+#africa-map #mali,
+#africa-map #guinea,
+#africa-map #guinea-bissau,
+#africa-map #sierra-leone,
+#africa-map #liberia,
+#africa-map #cote-divoire,
+#africa-map #ghana,
+#africa-map #burkina-faso,
+#africa-map #togo,
+#africa-map #benin,
+#africa-map #niger,
+#africa-map #nigeria {
+  fill: var(--northwest-africa) !important;
 }
 
+
+/* NORTH AFRICA — CORAL */
 #africa-map .country[data-region="north-africa"],
-#africa-map .north-africa {
-  fill: #cbb5ae !important;
+#africa-map .north-africa,
+#africa-map #morocco,
+#africa-map #algeria,
+#africa-map #tunisia,
+#africa-map #libya,
+#africa-map #egypt,
+#africa-map #sudan {
+  fill: var(--north-africa) !important;
 }
 
+
+/* CENTRAL + EAST AFRICA — BLUE */
 #africa-map .country[data-region="central-africa"],
-#africa-map .central-africa {
-  fill: #aabcae !important;
+#africa-map .central-africa,
+#africa-map #chad,
+#africa-map #central-african-republic,
+#africa-map #cameroon,
+#africa-map #equatorial-guinea,
+#africa-map #gabon,
+#africa-map #republic-of-the-congo,
+#africa-map #democratic-republic-of-the-congo,
+#africa-map #south-sudan,
+#africa-map #ethiopia,
+#africa-map #eritrea,
+#africa-map #djibouti,
+#africa-map #somaliland,
+#africa-map #somalia,
+#africa-map #kenya,
+#africa-map #uganda,
+#africa-map #rwanda,
+#africa-map #burundi,
+#africa-map #tanzania {
+  fill: var(--central-africa) !important;
 }
 
+
+/* SOUTHERN AFRICA — GREEN */
 #africa-map .country[data-region="southern-africa"],
-#africa-map .southern-africa {
-  fill: #b5c3ab !important;
+#africa-map .southern-africa,
+#africa-map #angola,
+#africa-map #zambia,
+#africa-map #malawi,
+#africa-map #mozambique,
+#africa-map #zimbabwe,
+#africa-map #botswana,
+#africa-map #namibia,
+#africa-map #south-africa,
+#africa-map #lesotho,
+#africa-map #eswatini,
+#africa-map #madagascar {
+  fill: var(--southern-africa) !important;
 }
+
 
 /* =========================================================
    FALLBACK COUNTRY COLOUR
 ========================================================= */
 
 #africa-map .country:not([data-region]) {
-  fill: #bcc6b8 !important;
+  fill: rgba(181, 217, 139, 0.18);
 }
+
 
 /* =========================================================
    HOVER / TOUCH STATE
-   Gentle colour change only — NO glow
 ========================================================= */
 
 #africa-map .country:hover,
 #africa-map .country.is-hovered,
 #africa-map .country.is-active,
 #africa-map .country.active {
-  fill: #a8bb95 !important;
+  fill: var(--map-hover-fill) !important;
 
-  stroke: #f7f8f5 !important;
-  stroke-width: 0.9 !important;
+  stroke: var(--map-hover) !important;
+  stroke-opacity: 1 !important;
+  stroke-width: 1.8px !important;
 
   filter: none !important;
+
+  transform: none !important;
+  translate: none !important;
+  scale: 1 !important;
 }
+
 
 /* =========================================================
    MAIN GGA FOCUS COUNTRIES
@@ -3488,13 +3563,19 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 #africa-map #ethiopia,
 #africa-map #nigeria,
 #africa-map #south-africa {
-  fill: #94aa81 !important;
+  fill: #a7d56f !important;
 
-  stroke: #f2f4ef !important;
-  stroke-width: 0.9 !important;
+  stroke: #e9f7d8 !important;
+  stroke-opacity: 1 !important;
+  stroke-width: 1.8px !important;
 
   filter: none !important;
+
+  transform: none !important;
+  translate: none !important;
+  scale: 1 !important;
 }
+
 
 /* =========================================================
    FOCUS COUNTRY HOVER / TOUCH
@@ -3510,46 +3591,60 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 #africa-map #nigeria.is-hovered,
 #africa-map #south-africa.is-hovered,
 
+#africa-map #ghana.is-active,
+#africa-map #ethiopia.is-active,
+#africa-map #nigeria.is-active,
+#africa-map #south-africa.is-active,
+
 #africa-map #ghana.active,
 #africa-map #ethiopia.active,
 #africa-map #nigeria.active,
 #africa-map #south-africa.active {
-  fill: #829d6c !important;
+  fill: #8fcf4f !important;
 
-  stroke: #f7f8f4 !important;
-  stroke-width: 1px !important;
+  stroke: #ffffff !important;
+  stroke-opacity: 1 !important;
+  stroke-width: 2.2px !important;
 
   filter: none !important;
+
+  transform: none !important;
+  translate: none !important;
+  scale: 1 !important;
 }
 
+
 /* =========================================================
-   TOOLTIP
-   Dark corporate green, understated
+   TOOLTIP COLOURS
 ========================================================= */
 
 .hero.hero--map .country-tooltip {
-  background: #26342b !important;
+  background: var(--tooltip-bg) !important;
 
-  color: #f7f8f5 !important;
+  color: var(--tooltip-text) !important;
 
-  border: 1px solid rgba(213, 225, 205, 0.22) !important;
+  border: 1px solid rgba(181, 217, 139, 0.30) !important;
 
   box-shadow:
-    0 10px 26px rgba(20, 34, 24, 0.16) !important;
+    0 10px 26px rgba(20, 34, 24, 0.20) !important;
 }
 
+
 .hero.hero--map .country-tooltip strong {
-  color: #c1d3ae !important;
+  color: #b5d98b !important;
 }
+
 
 .hero.hero--map .country-tooltip span,
 .hero.hero--map .country-tooltip p {
-  color: rgba(247, 248, 245, 0.82) !important;
+  color: #e8eee9 !important;
 }
 
+
 .hero.hero--map .country-tooltip .hint {
-  color: rgba(247, 248, 245, 0.52) !important;
+  color: rgba(232, 238, 233, 0.72) !important;
 }
+
 
 /* =========================================================
    ENTIRE MAP
