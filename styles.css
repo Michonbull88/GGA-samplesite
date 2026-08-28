@@ -3147,3 +3147,329 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
     padding-bottom: 118px !important;
   }
 }
+
+
+/* =========================================================
+   TOOLTIP POSITION UPDATE — 2026-08-28
+   Square information card adjacent to the Africa map.
+   Vertically centred with the combined text + map hero.
+========================================================= */
+
+@media (min-width: 1101px) {
+
+  /* Give the map a little room on its right for the tooltip card */
+  .hero.hero--map .hero__visual {
+    padding-right: 235px !important;
+  }
+
+  .hero.hero--map .africa-map-wrap {
+    position: relative !important;
+    max-width: 900px !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Square tooltip card beside the map */
+  .hero.hero--map .country-tooltip {
+    position: absolute !important;
+
+    top: 50% !important;
+    bottom: auto !important;
+
+    left: calc(100% + 24px) !important;
+    right: auto !important;
+
+    width: 210px !important;
+    height: 210px !important;
+    min-width: 210px !important;
+    max-width: 210px !important;
+    min-height: 210px !important;
+
+    padding: 22px !important;
+    margin: 0 !important;
+
+    display: none;
+    align-content: center;
+
+    border-radius: 0 !important;
+    box-sizing: border-box !important;
+
+    transform: translateY(-50%) !important;
+    translate: none !important;
+    scale: 1 !important;
+    rotate: none !important;
+
+    background: #17231b !important;
+    border: 1px solid rgba(181, 217, 139, 0.45) !important;
+    box-shadow: 0 18px 40px rgba(0,0,0,.24) !important;
+
+    overflow: hidden !important;
+    pointer-events: none !important;
+  }
+
+  .hero.hero--map .country-tooltip.is-visible,
+  .hero.hero--map .country-tooltip.active,
+  .hero.hero--map .country-tooltip.show {
+    display: grid !important;
+  }
+
+  .hero.hero--map .country-tooltip strong {
+    font-size: 18px !important;
+    line-height: 1.2 !important;
+    margin-bottom: 10px !important;
+  }
+
+  .hero.hero--map .country-tooltip span {
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+  }
+
+  .hero.hero--map .country-tooltip .hint {
+    margin-top: 10px !important;
+    font-size: 10px !important;
+    line-height: 1.3 !important;
+  }
+}
+
+/* On tablets/mobile keep the tooltip below the map so it remains readable. */
+@media (max-width: 1100px) {
+  .hero.hero--map .hero__visual {
+    padding-right: 0 !important;
+  }
+}
+
+/* TOOLTIP LEFT / CENTRED BESIDE AFRICA MAP */
+@media (min-width: 1101px) {
+  .hero.hero--map .hero__visual {
+    padding-right: 0 !important;
+    padding-left: 235px !important;
+  }
+  .hero.hero--map .africa-map-wrap {
+    position: relative !important;
+    max-width: 900px !important;
+    padding-bottom: 0 !important;
+  }
+  .hero.hero--map .country-tooltip {
+    position: absolute !important;
+    top: 50% !important;
+    bottom: auto !important;
+    right: calc(100% + 24px) !important;
+    left: auto !important;
+    width: 210px !important;
+    height: 210px !important;
+    min-width: 210px !important;
+    max-width: 210px !important;
+    min-height: 210px !important;
+    margin: 0 !important;
+    padding: 22px !important;
+    border-radius: 0 !important;
+    box-sizing: border-box !important;
+    transform: translateY(-50%) !important;
+    background: #17231b !important;
+    border: 1px solid rgba(181,217,139,.45) !important;
+    box-shadow: 0 18px 40px rgba(0,0,0,.24) !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+  }
+}
+@media (max-width: 1100px) {
+  .hero.hero--map .hero__visual {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+
+/* =========================================================
+   HERO SIZE ADJUSTMENT
+   Smaller text on the left + larger Africa map on the right
+========================================================= */
+
+@media (min-width: 1101px) {
+
+  /* More room for the map, less room for the text */
+  .hero.hero--map .hero__grid--map {
+    grid-template-columns: minmax(300px, 0.60fr) minmax(720px, 1.40fr) !important;
+    max-width: 1580px !important;
+    gap: 28px !important;
+  }
+
+  /* Smaller left-side heading */
+  .hero.hero--map .hero__copy h1 {
+    font-size: clamp(44px, 4vw, 68px) !important;
+    line-height: .96 !important;
+    max-width: 560px !important;
+  }
+
+  .hero.hero--map .hero__copy .eyebrow {
+    font-size: 12px !important;
+  }
+
+  .hero.hero--map .hero__lead {
+    font-size: 16px !important;
+    line-height: 1.55 !important;
+    max-width: 480px !important;
+  }
+
+  /* Slightly smaller buttons to match the reduced text */
+  .hero.hero--map .button-row .btn {
+    font-size: 14px !important;
+    padding: 13px 18px !important;
+  }
+
+  /* Make the map noticeably larger */
+  .hero.hero--map .hero__visual {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .hero.hero--map .africa-art {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .hero.hero--map .africa-map-wrap {
+    width: 100% !important;
+    max-width: 1080px !important;
+  }
+
+  .hero.hero--map #africa-map {
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+  }
+}
+
+@media (min-width: 1400px) {
+  .hero.hero--map .africa-map-wrap {
+    max-width: 1160px !important;
+  }
+}
+
+/* Keep tablet/mobile balanced */
+@media (max-width: 1100px) {
+  .hero.hero--map .hero__copy h1 {
+    font-size: clamp(42px, 7vw, 62px) !important;
+  }
+
+  .hero.hero--map .hero__lead {
+    font-size: 16px !important;
+  }
+}
+
+
+/* =========================================================
+   HERO REFINEMENT
+   Softer checker background + larger map + tighter tooltip
+========================================================= */
+
+/* Softer checker pattern: faint lines only */
+.hero.hero--map .hero__pattern {
+  opacity: 1 !important;
+  background-image:
+    linear-gradient(rgba(169, 210, 118, 0.075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(169, 210, 118, 0.075) 1px, transparent 1px),
+    linear-gradient(rgba(169, 210, 118, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(169, 210, 118, 0.035) 1px, transparent 1px) !important;
+
+  background-size:
+    64px 64px,
+    64px 64px,
+    128px 128px,
+    128px 128px !important;
+
+  background-position:
+    0 0,
+    0 0,
+    0 0,
+    0 0 !important;
+}
+
+/* Desktop */
+@media (min-width: 1101px) {
+
+  /* Give even more room to the map */
+  .hero.hero--map .hero__grid--map {
+    grid-template-columns: minmax(285px, 0.52fr) minmax(760px, 1.48fr) !important;
+    max-width: 1660px !important;
+    gap: 16px !important;
+  }
+
+  /* Reduce left spacing so the map can grow */
+  .hero.hero--map .hero__copy {
+    padding-right: 6px !important;
+  }
+
+  /* Larger visual/map area */
+  .hero.hero--map .hero__visual {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding-left: 170px !important;
+    padding-right: 0 !important;
+  }
+
+  .hero.hero--map .africa-art {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .hero.hero--map .africa-map-wrap {
+    width: 100% !important;
+    max-width: 1220px !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    position: relative !important;
+  }
+
+  .hero.hero--map #africa-map {
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+  }
+
+  /* Move tooltip closer to the map, into the open curve area */
+  .hero.hero--map .country-tooltip {
+    top: 50% !important;
+    right: calc(100% - 28px) !important;
+    left: auto !important;
+
+    width: 200px !important;
+    height: 200px !important;
+    min-width: 200px !important;
+    max-width: 200px !important;
+    min-height: 200px !important;
+
+    padding: 20px !important;
+    transform: translateY(-50%) !important;
+  }
+}
+
+/* Extra-large desktop */
+@media (min-width: 1400px) {
+  .hero.hero--map .africa-map-wrap {
+    max-width: 1320px !important;
+  }
+
+  .hero.hero--map .hero__visual {
+    padding-left: 155px !important;
+  }
+
+  .hero.hero--map .country-tooltip {
+    right: calc(100% - 42px) !important;
+  }
+}
+
+/* Tablet/mobile: keep pattern subtle too */
+@media (max-width: 1100px) {
+  .hero.hero--map .hero__pattern {
+    background-size:
+      42px 42px,
+      42px 42px,
+      84px 84px,
+      84px 84px !important;
+  }
+
+  .hero.hero--map .hero__visual {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
