@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Popup</title>
+
+  <style>
+    /* OPEN VIDEO BUTTON */
+    .video-open-btn {
+      display: inline-block;
+      padding: 14px 24px;
+      background: #1f3b2d;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .video-open-btn:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    /* POPUP OVERLAY */
+    .video-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.78);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 99999;
+      padding: 20px;
+    }
+
+    .video-modal.active {
+      display: flex;
+    }
+
+    /* POPUP BOX */
+    .video-modal-content {
+      position: relative;
+      width: min(100%, 1000px);
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    }
+
+    /* RESPONSIVE 16:9 VIDEO */
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* CLOSE BUTTON */
+    .video-close-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 10;
+      width: 42px;
+      height: 42px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.75);
+      color: white;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .video-close-btn:hover {
+      background: rgba(0, 0, 0, 0.95);
+    }
+
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+      .video-modal {
+        padding: 12px;
+      }
+
+      .video-close-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- BUTTON -->
+  <button
+    type="button"
+    class="video-open-btn"
+    data-video-id="kzX-HjJRGNI"
+  >
+    Watch Video
+  </button>
+
+  <!-- VIDEO POPUP -->
+  <div class="video-modal" id="videoModal">
+
+    <div class="video-modal-content">
+
+      <button
+        type="button"
+        class="video-close-btn"
+        id="videoClose"
+        aria-label="Close video"
+      >
+        &times;
+      </button>
+
+      <div class="video-wrapper">
+        <iframe
+          id="youtubeFrame"
+          src=""
+          title="YouTube video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    const videoModal = document.getElementById("videoModal");
+    const youtubeFrame = document.getElementById("youtubeFrame");
+    const videoClose = document.getElementById("videoClose");
+    const videoButtons = document.querySelectorAll(".video-open-btn");
+
+    function openVideo(videoId) {
+
+      const embedUrl =
+        "https://www.youtube.com/embed/" +
+        videoId +
+        "?autoplay=1&rel=0";
+
+      youtubeFrame.src = embedUrl;
+
+      videoModal.classList.add("active");
+      document.body.classList.add("modal-open");
+    }
+
+    function closeVideo() {
+
+      videoModal.classList.remove("active");
+      document.body.classList.remove("modal-open");
+
+      /* Completely stops the video */
+      youtubeFrame.src = "";
+    }
+
+    videoButtons.forEach(button => {
+
+      button.addEventListener("click", function() {
+
+        const videoId = this.dataset.videoId;
+
+        if (videoId) {
+          openVideo(videoId);
+        }
+
+      });
+
+    });
+
+    videoClose.addEventListener("click", closeVideo);
+
+    /* Close when clicking dark background */
+    videoModal.addEventListener("click", function(event) {
+
+      if (event.target === videoModal) {
+        closeVideo();
+      }
+
+    });
+
+    /* Close with ESC */
+    document.addEventListener("keydown", function(event) {
+
+      if (
+        event.key === "Escape" &&
+        videoModal.classList.contains("active")
+      ) {
+        closeVideo();
+      }
+
+    });
+  </script>
+
+</body>
+</html>
+
