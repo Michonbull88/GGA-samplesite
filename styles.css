@@ -17,6 +17,7 @@
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
+  overflow-x: hidden;
   color: var(--ink);
   background: var(--white);
   font-family: "DM Sans", Arial, sans-serif;
@@ -49,7 +50,8 @@ body {
 
 .africa-map-wrap {
   position: relative;
-  width: min(100%, 900px);
+  width: min(100%, 1250px);
+  max-width: 1250px;
   margin: 40px auto;
 
   /*
@@ -927,17 +929,6 @@ button {
 }
 
 
-/* =========================================================
-   MOBILE SITE CONTAINER
-========================================================= */
-
-@media (max-width: 600px) {
-
-  .container {
-    width: calc(100% - 28px);
-  }
-
-}
 
 .announcement {
   background: var(--green-deep);
@@ -1039,9 +1030,6 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 .btn--outline:hover { background: #fff; color: var(--green-dark); }
 .btn--ghost { border-color: var(--line); color: var(--ink); }
 .btn--large { min-height: 58px; padding-inline: 26px; }
-
- 
-/* Old CSS */
 .scroll-cue {
   position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
   font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: #b7cbb0;
@@ -1125,16 +1113,16 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 .knowledge-card--dark a { color: #b8d48f; }
 
 .map-section { background: #edf2e9; }
-.map-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 70px; align-items: center; }
+.map-grid { display: grid; grid-template-columns: .70fr 1.30fr; gap: 45px; align-items: center; }
 .map-copy > p { max-width: 500px; }
 .region-links { margin: 30px 0 12px; border-top: 1px solid var(--line); }
 .region-btn { width: 100%; border: 0; border-bottom: 1px solid var(--line); background: none; text-align: left; padding: 15px 0; display: flex; justify-content: space-between; color: var(--muted); font-weight: 700; }
 .region-btn.active, .region-btn:hover { color: var(--green); }
 .region-btn span { font-size: 18px; }
 .region-status { font-size: 11px !important; color: var(--green) !important; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; }
-.map-art { min-height: 590px; background: var(--green-dark); position: relative; overflow: hidden; display: grid; place-items: center; }
+.map-art { min-height: 700px; background: var(--green-dark); position: relative; overflow: hidden; display: grid; place-items: center; }
 .map-grid-lines { position: absolute; inset: 0; opacity: .15; background-image: linear-gradient(rgba(255,255,255,.25) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.25) 1px, transparent 1px); background-size: 50px 50px; }
-.map-art svg { width: 70%; height: 80%; position: relative; z-index: 1; }
+.map-art svg { width: 94% !important; height: 94% !important; max-width: none !important; position: relative; z-index: 1; display: block; transform: none !important; translate: none !important; scale: 1 !important; }
 .map-shape { fill: #70a73d; }
 .map-dot { fill: #fff; stroke: #9fd06c; stroke-width: 5; }
 .map-route { fill: none; stroke: #fff; stroke-width: 2; stroke-dasharray: 5 8; opacity: .7; }
@@ -1193,6 +1181,9 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
   .hero__visual { order: -1; }
   .hero__grid { padding-top: 70px; }
   .africa-art { max-width: 480px; }
+  .africa-map-wrap { width: 100%; max-width: 850px; }
+  .map-art { min-height: 650px; }
+  .map-art svg { width: 96% !important; height: 94% !important; }
   .section { padding: 90px 0; }
   .two-col { gap: 40px; }
   .work-grid, .insights-grid, .knowledge-grid { grid-template-columns: 1fr 1fr; }
@@ -1201,38 +1192,53 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 }
 
 @media (max-width: 760px) {
-  .container { width: min(var(--container), calc(100% - 32px)); }
+  .container { width: calc(100% - 28px); }
   .announcement__inner { padding: 8px 0; }
   .announcement__inner span { display: none; }
-  .nav-wrap { min-height: 74px; }
-  .brand img { width: 145px; }
-  .menu-toggle { display: block; }
-  .main-nav {
-    position: fixed; inset: 110px 0 0; background: #fff; padding: 35px 24px;
-    display: flex; flex-direction: column; align-items: flex-start; gap: 20px;
-    transform: translateX(100%); transition: transform .3s ease;
-    box-shadow: -10px 0 30px rgba(0,0,0,.1);
-  }
-  .main-nav.is-open { transform: translateX(0); }
-  .main-nav > a, .search-trigger { font-size: 15px; }
+
   .hero { min-height: auto; }
   .hero__grid { padding: 70px 0 90px; gap: 30px; }
-  h1 { font-size: clamp(50px, 16vw, 78px); }
+  h1 { font-size: clamp(46px, 15vw, 72px); }
   .hero__lead { font-size: 16px; }
   .africa-art { max-width: 390px; }
   .scroll-cue { display: none; }
-  .section-heading, .impact-heading { align-items: flex-start; flex-direction: column; }
-  .work-grid, .insights-grid, .knowledge-grid, .stats { grid-template-columns: 1fr; }
+
+  .section-heading,
+  .impact-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .work-grid,
+  .insights-grid,
+  .knowledge-grid,
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
   .insight-card--featured { grid-column: auto; }
   .work-card { min-height: 350px; }
   .story-card { grid-template-columns: 1fr; }
   .story-image { min-height: 350px; }
   .story-copy { padding: 45px 28px; }
-  .stat { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.25); padding: 30px 0; }
+
+  .stat {
+    border-right: 0;
+    border-bottom: 1px solid rgba(255,255,255,.25);
+    padding: 30px 0;
+  }
   .stat:last-child { border-bottom: 0; }
-  .map-art { min-height: 450px; }
+
+  .map-art { min-height: 520px; }
+  .map-art svg {
+    width: 100% !important;
+    height: 96% !important;
+    max-width: none !important;
+  }
+
   .partner-grid { gap: 45px; }
-  .newsletter-form, .search-panel form { grid-template-columns: 1fr; }
+  .newsletter-form,
+  .search-panel form { grid-template-columns: 1fr; }
   .footer-top { gap: 45px; }
   .footer-bottom { flex-direction: column; }
   .footer-bottom div { flex-wrap: wrap; }
