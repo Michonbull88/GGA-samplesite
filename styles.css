@@ -4292,17 +4292,16 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 
   opacity: 0.78 !important;
 }
+
 /* =========================================================
-   NAVBAR ALIGNMENT
-   Align GGA logo with hero text below
+   NAVBAR LOGO ALIGNMENT — MATCH HERO TEXT LEFT EDGE
+   Keeps the navbar content aligned with the map hero content.
 ========================================================= */
 
-@media (min-width: 1101px) {
-
-  .site-header .nav-wrap {
-    width: min(1580px, calc(100% - 48px)) !important;
-    max-width: 1580px !important;
-
+@media (min-width: 761px) {
+  .site-header .nav-wrap.container {
+    width: min(1500px, calc(100% - 48px)) !important;
+    max-width: 1500px !important;
     margin-left: auto !important;
     margin-right: auto !important;
   }
@@ -4316,3 +4315,19 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
     margin-left: 0 !important;
   }
 }
+
+/* Keep the normal safe mobile spacing. */
+@media (max-width: 760px) {
+  .site-header .nav-wrap.container {
+    width: calc(100% - 28px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header .nav-wrap.container {
+    width: calc(100% - 20px) !important;
+  }
+}
+
