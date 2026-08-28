@@ -4292,3 +4292,27 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 
   opacity: 0.78 !important;
 }
+/* =========================================================
+   NAVBAR ALIGNMENT
+   Align GGA logo with hero text below
+========================================================= */
+
+@media (min-width: 1101px) {
+
+  .site-header .nav-wrap {
+    width: min(1580px, calc(100% - 48px)) !important;
+    max-width: 1580px !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .site-header .brand {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .site-header .brand img {
+    margin-left: 0 !important;
+  }
+}
