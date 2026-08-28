@@ -1428,3 +1428,78 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
     z-index: 4000;
   }
 }
+/* =========================================================
+   MOBILE — REMOVE RIGHT SIDE OVERFLOW / FLOATING WIDGET
+========================================================= */
+
+@media (max-width: 768px) {
+
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
+  }
+
+  body {
+    position: relative;
+  }
+
+  /*
+     Prevent the website itself from becoming wider
+     than the mobile screen.
+  */
+  .site-header,
+  main,
+  section,
+  .container,
+  .map-section,
+  .map-grid,
+  .map-art,
+  .africa-map-wrap {
+    max-width: 100% !important;
+  }
+
+  /*
+     Remove floating social / TikTok style side widgets
+     on mobile.
+  */
+  iframe[src*="tiktok"],
+  [class*="tiktok"],
+  [id*="tiktok"],
+  [class*="floating-social"],
+  [class*="social-float"],
+  [class*="social-widget"],
+  [class*="side-widget"],
+  [class*="floating-widget"] {
+    display: none !important;
+  }
+
+  /*
+     Make sure the map section uses the FULL mobile width.
+  */
+  .map-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+  }
+
+  .map-art {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .africa-map-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  #africa-map {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
