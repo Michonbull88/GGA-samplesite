@@ -1747,3 +1747,1403 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
      starts outside the actual Africa SVG.
   */
 }
+
+/* =========================================================
+   AFRICA MAP — LAYOUT REFINEMENT
+   Bigger map panel, copy pulled further left, tooltip moved
+   into the lower-left empty space beside the Africa shape.
+   Existing hover/touch/mobile-lock behaviour is preserved.
+========================================================= */
+
+/* DESKTOP / LARGE TABLET */
+@media (min-width: 981px) {
+  .map-section .container {
+    width: min(1480px, calc(100% - 36px)) !important;
+    max-width: 1480px !important;
+  }
+
+  .map-grid {
+    grid-template-columns: .50fr 1.50fr !important;
+    gap: 26px !important;
+    align-items: center !important;
+  }
+
+  .map-copy {
+    margin-left: -12px !important;
+    padding-left: 0 !important;
+    max-width: 430px !important;
+  }
+
+  .map-copy > p {
+    max-width: 430px !important;
+  }
+
+  .map-art {
+    min-height: 860px !important;
+    width: 100% !important;
+  }
+
+  .africa-map-wrap {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 8px 8px 8px 8px !important;
+    overflow: hidden !important;
+  }
+
+  #africa-map,
+  .map-art svg {
+    width: 100% !important;
+    height: auto !important;
+    max-width: none !important;
+  }
+
+  .country-tooltip {
+    left: 8% !important;
+    right: auto !important;
+    bottom: 10% !important;
+    width: min(360px, 34%) !important;
+    max-width: 360px !important;
+    min-height: 0 !important;
+    transform: none !important;
+    translate: none !important;
+    padding: 14px 16px !important;
+  }
+}
+
+/* TABLET */
+@media (min-width: 769px) and (max-width: 980px) {
+  .map-section .container {
+    width: min(100%, calc(100% - 24px)) !important;
+    max-width: 100% !important;
+  }
+
+  .map-grid {
+    grid-template-columns: 1fr !important;
+    gap: 26px !important;
+  }
+
+  .map-copy {
+    margin-left: 0 !important;
+    max-width: 620px !important;
+  }
+
+  .map-art {
+    min-height: 720px !important;
+  }
+
+  .africa-map-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 6px !important;
+    overflow: hidden !important;
+  }
+
+  #africa-map,
+  .map-art svg {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .country-tooltip {
+    left: 6% !important;
+    right: auto !important;
+    bottom: 8% !important;
+    width: min(330px, 42%) !important;
+    max-width: 330px !important;
+    min-height: 0 !important;
+    transform: none !important;
+    translate: none !important;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .map-section {
+    overflow: hidden !important;
+  }
+
+  .map-section .container {
+    width: calc(100% - 12px) !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .map-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 18px !important;
+    width: 100% !important;
+  }
+
+  .map-copy {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 8px !important;
+  }
+
+  .map-copy h2,
+  .map-copy > p,
+  .region-links,
+  .region-status {
+    margin-left: 0 !important;
+  }
+
+  .map-art {
+    min-height: 620px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .africa-map-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 2px !important;
+    overflow: hidden !important;
+  }
+
+  #africa-map,
+  .map-art svg {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+  }
+
+  /* Tooltip sits in the lower-left open space inside the map panel. */
+  .country-tooltip {
+    left: 3% !important;
+    right: auto !important;
+    bottom: 7% !important;
+    width: 44% !important;
+    max-width: 260px !important;
+    min-width: 150px !important;
+    min-height: 0 !important;
+    transform: none !important;
+    translate: none !important;
+    padding: 10px 12px !important;
+    border-radius: 8px !important;
+  }
+
+  .country-tooltip strong {
+    font-size: 14px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .country-tooltip span {
+    font-size: 11px !important;
+    line-height: 1.3 !important;
+  }
+
+  .country-tooltip .hint {
+    font-size: 10px !important;
+    margin-top: 4px !important;
+  }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+  .map-section .container {
+    width: calc(100% - 8px) !important;
+  }
+
+  .map-art {
+    min-height: 580px !important;
+  }
+
+  .country-tooltip {
+    left: 2% !important;
+    bottom: 6% !important;
+    width: 48% !important;
+    max-width: 220px !important;
+    min-width: 140px !important;
+  }
+}
+
+
+/* =========================================================
+   MAP SECTION AS HERO — IMAGE MATCH
+   Makes the Africa map section resemble the supplied mockup:
+   compact copy on the left, very large map on the right,
+   dark green background, and responsive mobile stacking.
+   Existing SVG hover/touch/click behaviour is preserved.
+========================================================= */
+
+/* HERO-LIKE MAP SECTION */
+.map-section {
+  position: relative;
+  background: #082c1f !important;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+/* subtle grid background */
+.map-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .18;
+  background-image:
+    linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
+  background-size: 52px 52px;
+}
+
+.map-section > .container {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* =========================================================
+   DESKTOP HERO LAYOUT
+========================================================= */
+@media (min-width: 981px) {
+
+  .map-section {
+    padding: 44px 0 34px !important;
+    min-height: 760px;
+  }
+
+  .map-section .container {
+    width: min(1560px, calc(100% - 32px)) !important;
+    max-width: 1560px !important;
+  }
+
+  .map-grid {
+    display: grid !important;
+    grid-template-columns: 280px minmax(0, 1fr) !important;
+    gap: 10px !important;
+    align-items: center !important;
+    min-height: 690px;
+  }
+
+  /* LEFT COPY — SMALLER AND FURTHER LEFT */
+  .map-copy {
+    position: relative;
+    z-index: 4;
+    width: 100% !important;
+    max-width: 250px !important;
+    margin-left: -4px !important;
+    padding: 0 0 0 0 !important;
+    align-self: center;
+  }
+
+  .map-copy .eyebrow {
+    margin-bottom: 12px !important;
+    color: #b6d98c !important;
+    font-size: 10px !important;
+    letter-spacing: .14em !important;
+  }
+
+  .map-copy h2 {
+    max-width: 220px !important;
+    margin: 0 0 14px !important;
+    font-size: clamp(29px, 2.45vw, 40px) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -.035em !important;
+    color: #ffffff !important;
+  }
+
+  .map-copy h2 em {
+    color: #a9d66f !important;
+  }
+
+  .map-copy > p {
+    max-width: 235px !important;
+    margin: 0 0 18px !important;
+    color: #d2ddd6 !important;
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+  }
+
+  .map-copy .text-link,
+  .map-copy .btn {
+    margin-top: 10px !important;
+  }
+
+  .region-links {
+    max-width: 235px;
+    margin-top: 20px !important;
+    border-color: rgba(255,255,255,.18) !important;
+  }
+
+  .region-btn {
+    color: #cad7cf !important;
+    border-color: rgba(255,255,255,.14) !important;
+    padding: 11px 0 !important;
+    font-size: 12px !important;
+  }
+
+  .region-btn.active,
+  .region-btn:hover {
+    color: #b7ff3c !important;
+  }
+
+  .region-status {
+    color: #b7ff3c !important;
+    font-size: 10px !important;
+  }
+
+
+  /* MAP PANEL — HUGE, ALMOST EDGE TO EDGE */
+  .map-art {
+    min-height: 690px !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    background: transparent !important;
+    overflow: hidden !important;
+    display: grid !important;
+    place-items: center !important;
+  }
+
+  .map-grid-lines {
+    opacity: 0 !important;
+  }
+
+  .africa-map-wrap {
+    position: relative !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  #africa-map,
+  .map-art svg {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    transform: none !important;
+    translate: none !important;
+    scale: 1 !important;
+  }
+
+
+  /* TOOLTIP — INSIDE LOWER-LEFT CURVE OF AFRICA */
+  .country-tooltip {
+    left: 4.5% !important;
+    right: auto !important;
+    bottom: 10% !important;
+    width: 300px !important;
+    max-width: 300px !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    padding: 14px 16px !important;
+    transform: none !important;
+    translate: none !important;
+    border-color: rgba(183,255,60,.30) !important;
+    background: rgba(10,35,25,.96) !important;
+  }
+
+  .country-tooltip strong {
+    color: #b7ff3c !important;
+    font-size: 14px !important;
+  }
+
+  .country-tooltip span {
+    font-size: 12px !important;
+    line-height: 1.45 !important;
+  }
+
+  .country-tooltip .hint {
+    font-size: 10px !important;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+@media (min-width: 769px) and (max-width: 980px) {
+
+  .map-section {
+    padding: 34px 0 30px !important;
+  }
+
+  .map-section .container {
+    width: calc(100% - 24px) !important;
+  }
+
+  .map-grid {
+    grid-template-columns: 220px minmax(0, 1fr) !important;
+    gap: 8px !important;
+    align-items: center !important;
+  }
+
+  .map-copy {
+    max-width: 205px !important;
+    margin-left: 0 !important;
+  }
+
+  .map-copy h2 {
+    font-size: 28px !important;
+    max-width: 190px !important;
+  }
+
+  .map-copy > p {
+    font-size: 12px !important;
+    max-width: 195px !important;
+  }
+
+  .map-art {
+    min-height: 610px !important;
+    background: transparent !important;
+  }
+
+  .africa-map-wrap {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #africa-map,
+  .map-art svg {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .country-tooltip {
+    left: 4% !important;
+    bottom: 8% !important;
+    width: 260px !important;
+    max-width: 260px !important;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   Keeps copy compact at top-left and map very large below.
+========================================================= */
+@media (max-width: 768px) {
+
+  .map-section {
+    padding: 18px 0 20px !important;
+    min-height: auto !important;
+  }
+
+  .map-section .container {
+    width: calc(100% - 12px) !important;
+    max-width: 100% !important;
+  }
+
+  .map-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 6px !important;
+  }
+
+  .map-copy {
+    width: 100% !important;
+    max-width: 235px !important;
+    margin: 0 !important;
+    padding: 0 0 0 8px !important;
+  }
+
+  .map-copy .eyebrow {
+    font-size: 9px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .map-copy h2 {
+    max-width: 200px !important;
+    margin: 0 0 10px !important;
+    font-size: clamp(24px, 8vw, 32px) !important;
+    line-height: 1.04 !important;
+    color: #fff !important;
+  }
+
+  .map-copy h2 em {
+    color: #b7ff3c !important;
+  }
+
+  .map-copy > p {
+    max-width: 220px !important;
+    margin: 0 0 10px !important;
+    color: #d4dfd8 !important;
+    font-size: 11px !important;
+    line-height: 1.45 !important;
+  }
+
+  .region-links {
+    max-width: 220px !important;
+    margin: 12px 0 0 !important;
+  }
+
+  .region-btn {
+    padding: 9px 0 !important;
+    font-size: 11px !important;
+  }
+
+  .map-art {
+    min-height: 540px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: -4px !important;
+    background: transparent !important;
+    overflow: hidden !important;
+  }
+
+  .map-grid-lines {
+    opacity: 0 !important;
+  }
+
+  .africa-map-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  #africa-map,
+  .map-art svg {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 auto !important;
+  }
+
+  /* Mobile tooltip in the empty lower-left map space */
+  .country-tooltip {
+    left: 4% !important;
+    right: auto !important;
+    bottom: 6% !important;
+    width: 44% !important;
+    max-width: 190px !important;
+    min-width: 135px !important;
+    padding: 9px 10px !important;
+    border-radius: 7px !important;
+    transform: none !important;
+    translate: none !important;
+    background: rgba(10,35,25,.96) !important;
+  }
+
+  .country-tooltip strong {
+    font-size: 12px !important;
+    margin-bottom: 3px !important;
+  }
+
+  .country-tooltip span {
+    font-size: 10px !important;
+    line-height: 1.25 !important;
+  }
+
+  .country-tooltip .hint {
+    font-size: 9px !important;
+    margin-top: 3px !important;
+  }
+}
+
+
+/* VERY SMALL PHONES */
+@media (max-width: 480px) {
+
+  .map-section .container {
+    width: calc(100% - 8px) !important;
+  }
+
+  .map-copy {
+    padding-left: 6px !important;
+    max-width: 210px !important;
+  }
+
+  .map-copy h2 {
+    max-width: 180px !important;
+    font-size: 25px !important;
+  }
+
+  .map-copy > p {
+    max-width: 200px !important;
+    font-size: 10px !important;
+  }
+
+  .map-art {
+    min-height: 500px !important;
+  }
+
+  .country-tooltip {
+    left: 3% !important;
+    bottom: 5% !important;
+    width: 47% !important;
+    max-width: 175px !important;
+    min-width: 125px !important;
+  }
+}
+
+
+/* =========================================================
+   FIRST EXAMPLE HERO — FINAL OVERRIDE
+   Desktop: compact copy on far left + very large Africa map.
+   Mobile: compact copy above map, map fills the screen width.
+   Existing country colours, hover, tap, labels and tooltip logic
+   remain unchanged.
+========================================================= */
+
+/* ---------- HERO / MAP SECTION BASE ---------- */
+.map-section {
+  position: relative !important;
+  background: #062c1d !important;
+  color: #ffffff !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+}
+
+.map-section::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+  opacity: .20 !important;
+  background-image:
+    linear-gradient(rgba(255,255,255,.075) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.075) 1px, transparent 1px) !important;
+  background-size: 52px 52px !important;
+}
+
+.map-section .container {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* ---------- DESKTOP / FIRST EXAMPLE ---------- */
+@media (min-width: 981px) {
+
+  .map-section {
+    min-height: 690px !important;
+  }
+
+  .map-section .container {
+    width: min(1580px, calc(100% - 28px)) !important;
+    max-width: 1580px !important;
+    margin-inline: auto !important;
+  }
+
+  .map-grid {
+    display: grid !important;
+    grid-template-columns: 245px minmax(0, 1fr) !important;
+    gap: 18px !important;
+    align-items: center !important;
+    min-height: 690px !important;
+    width: 100% !important;
+  }
+
+  /* LEFT COPY */
+  .map-copy {
+    position: relative !important;
+    z-index: 5 !important;
+    width: 100% !important;
+    max-width: 220px !important;
+    margin: 0 !important;
+    padding: 0 0 0 4px !important;
+    align-self: center !important;
+  }
+
+  .map-copy .eyebrow {
+    display: block !important;
+    margin: 0 0 12px !important;
+    font-size: 9px !important;
+    line-height: 1.2 !important;
+    letter-spacing: .16em !important;
+    color: #acd27d !important;
+  }
+
+  .map-copy h2 {
+    max-width: 190px !important;
+    margin: 0 0 14px !important;
+    font-size: 29px !important;
+    line-height: 1.08 !important;
+    letter-spacing: -.025em !important;
+    font-weight: 500 !important;
+    color: #ffffff !important;
+  }
+
+  .map-copy h2 em {
+    color: #b8e77d !important;
+    font-style: normal !important;
+  }
+
+  .map-copy > p {
+    max-width: 205px !important;
+    margin: 0 0 18px !important;
+    font-size: 11px !important;
+    line-height: 1.5 !important;
+    color: #d8e2dc !important;
+  }
+
+  .map-copy .text-link,
+  .map-copy .btn {
+    min-height: 36px !important;
+    margin-top: 2px !important;
+    padding: 0 14px !important;
+    font-size: 9px !important;
+    letter-spacing: .07em !important;
+  }
+
+  .region-links {
+    max-width: 205px !important;
+    margin: 18px 0 8px !important;
+    border-top-color: rgba(255,255,255,.16) !important;
+  }
+
+  .region-btn {
+    padding: 9px 0 !important;
+    border-bottom-color: rgba(255,255,255,.12) !important;
+    color: #cbd7d0 !important;
+    font-size: 10px !important;
+  }
+
+  .region-btn.active,
+  .region-btn:hover {
+    color: #b7ff3c !important;
+  }
+
+  .region-status {
+    color: #b7ff3c !important;
+    font-size: 9px !important;
+  }
+
+  /* HUGE MAP */
+  .map-art {
+    position: relative !important;
+    min-height: 690px !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    background: transparent !important;
+    overflow: hidden !important;
+    display: grid !important;
+    place-items: center !important;
+  }
+
+  .map-grid-lines {
+    display: none !important;
+  }
+
+  .africa-map-wrap {
+    position: relative !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  #africa-map,
+  .map-art svg {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    transform: none !important;
+    translate: none !important;
+    scale: 1 !important;
+  }
+
+  /* TOOLTIP INSIDE LOWER-LEFT OPEN AREA */
+  .country-tooltip {
+    left: 5% !important;
+    right: auto !important;
+    bottom: 12% !important;
+    width: 285px !important;
+    max-width: 285px !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    padding: 14px 16px !important;
+    border: 1px solid rgba(183,255,60,.28) !important;
+    border-radius: 8px !important;
+    background: rgba(5,34,23,.96) !important;
+    box-shadow: 0 12px 30px rgba(0,0,0,.25) !important;
+    transform: none !important;
+    translate: none !important;
+  }
+
+  .country-tooltip strong {
+    font-size: 13px !important;
+    color: #b7ff3c !important;
+  }
+
+  .country-tooltip span {
+    font-size: 11px !important;
+    line-height: 1.45 !important;
+  }
+
+  .country-tooltip .hint {
+    font-size: 9px !important;
+  }
+}
+
+/* ---------- TABLET ---------- */
+@media (min-width: 769px) and (max-width: 980px) {
+
+  .map-section .container {
+    width: calc(100% - 20px) !important;
+    max-width: 100% !important;
+  }
+
+  .map-grid {
+    grid-template-columns: 210px minmax(0, 1fr) !important;
+    gap: 10px !important;
+    min-height: 620px !important;
+  }
+
+  .map-copy {
+    max-width: 195px !important;
+    padding-left: 2px !important;
+  }
+
+  .map-copy h2 {
+    max-width: 180px !important;
+    font-size: 25px !important;
+  }
+
+  .map-copy > p {
+    max-width: 185px !important;
+    font-size: 10px !important;
+  }
+
+  .map-art {
+    min-height: 620px !important;
+    background: transparent !important;
+  }
+
+  .africa-map-wrap {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  #africa-map,
+  .map-art svg {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .country-tooltip {
+    left: 4% !important;
+    bottom: 9% !important;
+    width: 245px !important;
+    max-width: 245px !important;
+  }
+}
+
+/* ---------- MOBILE / FIRST EXAMPLE MOBILE ---------- */
+@media (max-width: 768px) {
+
+  .map-section {
+    min-height: auto !important;
+    padding: 12px 0 14px !important;
+  }
+
+  .map-section .container {
+    width: calc(100% - 8px) !important;
+    max-width: 100% !important;
+    margin-inline: auto !important;
+  }
+
+  .map-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 0 !important;
+    width: 100% !important;
+  }
+
+  .map-copy {
+    width: 100% !important;
+    max-width: 200px !important;
+    margin: 0 !important;
+    padding: 4px 0 0 10px !important;
+    position: relative !important;
+    z-index: 5 !important;
+  }
+
+  .map-copy .eyebrow {
+    margin: 0 0 7px !important;
+    font-size: 8px !important;
+  }
+
+  .map-copy h2 {
+    max-width: 170px !important;
+    margin: 0 0 8px !important;
+    font-size: 22px !important;
+    line-height: 1.03 !important;
+    font-weight: 500 !important;
+    color: #ffffff !important;
+  }
+
+  .map-copy h2 em {
+    color: #b7ff3c !important;
+  }
+
+  .map-copy > p {
+    max-width: 190px !important;
+    margin: 0 0 9px !important;
+    font-size: 9px !important;
+    line-height: 1.4 !important;
+    color: #d5dfd9 !important;
+  }
+
+  .map-copy .text-link,
+  .map-copy .btn {
+    min-height: 32px !important;
+    padding: 0 12px !important;
+    font-size: 8px !important;
+  }
+
+  .region-links {
+    max-width: 190px !important;
+    margin-top: 10px !important;
+  }
+
+  .region-btn {
+    padding: 7px 0 !important;
+    font-size: 9px !important;
+  }
+
+  /* MAP FILLS MOBILE WIDTH */
+  .map-art {
+    min-height: 500px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: -6px !important;
+    background: transparent !important;
+    overflow: hidden !important;
+  }
+
+  .africa-map-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  #africa-map,
+  .map-art svg {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 auto !important;
+  }
+
+  .country-tooltip {
+    left: 5% !important;
+    right: auto !important;
+    bottom: 6% !important;
+    width: 42% !important;
+    max-width: 170px !important;
+    min-width: 120px !important;
+    min-height: 0 !important;
+    padding: 8px 9px !important;
+    border-radius: 7px !important;
+    background: rgba(5,34,23,.96) !important;
+    transform: none !important;
+    translate: none !important;
+  }
+
+  .country-tooltip strong {
+    font-size: 11px !important;
+    margin-bottom: 3px !important;
+  }
+
+  .country-tooltip span {
+    font-size: 9px !important;
+    line-height: 1.25 !important;
+  }
+
+  .country-tooltip .hint {
+    font-size: 8px !important;
+    margin-top: 3px !important;
+  }
+}
+
+/* ---------- SMALL PHONES ---------- */
+@media (max-width: 480px) {
+
+  .map-section .container {
+    width: calc(100% - 6px) !important;
+  }
+
+  .map-copy {
+    max-width: 185px !important;
+    padding-left: 8px !important;
+  }
+
+  .map-copy h2 {
+    max-width: 160px !important;
+    font-size: 20px !important;
+  }
+
+  .map-copy > p {
+    max-width: 175px !important;
+    font-size: 8.5px !important;
+  }
+
+  .map-art {
+    min-height: 470px !important;
+  }
+
+  .country-tooltip {
+    left: 4% !important;
+    bottom: 5% !important;
+    width: 44% !important;
+    max-width: 155px !important;
+    min-width: 115px !important;
+  }
+}
+
+
+/* =========================================================
+   FINAL HERO + AFRICA MAP LAYOUT
+   Added 2026-08-28
+   - Copy stays on the LEFT
+   - Large interactive Africa map stays on the RIGHT
+   - Dark green checker/grid background
+   - Existing map hover/tap/tooltip behaviour is preserved
+========================================================= */
+
+.hero.hero--map {
+  position: relative !important;
+  min-height: calc(100vh - 122px) !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  isolation: isolate;
+  background: #173f28 !important;
+  color: #ffffff;
+}
+
+/* Green checker/grid background */
+.hero.hero--map .hero__pattern {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 0 !important;
+  opacity: 1 !important;
+  pointer-events: none !important;
+  background-color: #173f28 !important;
+  background-image:
+    linear-gradient(rgba(151, 194, 104, 0.11) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(151, 194, 104, 0.11) 1px, transparent 1px),
+    linear-gradient(rgba(6, 39, 24, 0.14) 50%, transparent 50%),
+    linear-gradient(90deg, rgba(6, 39, 24, 0.14) 50%, transparent 50%) !important;
+  background-size:
+    64px 64px,
+    64px 64px,
+    128px 128px,
+    128px 128px !important;
+}
+
+/* Main desktop layout */
+.hero.hero--map .hero__grid--map {
+  position: relative !important;
+  z-index: 1 !important;
+  display: grid !important;
+  grid-template-columns: minmax(390px, 0.78fr) minmax(620px, 1.22fr) !important;
+  align-items: center !important;
+  gap: clamp(24px, 3vw, 58px) !important;
+  min-height: calc(100vh - 122px) !important;
+  width: min(1500px, calc(100% - 48px)) !important;
+  max-width: 1500px !important;
+  margin-inline: auto !important;
+  padding: 48px 0 72px !important;
+}
+
+/* LEFT: hero text */
+.hero.hero--map .hero__copy {
+  position: relative !important;
+  z-index: 3 !important;
+  width: 100% !important;
+  max-width: 620px !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  text-align: left !important;
+}
+
+.hero.hero--map .hero__copy .eyebrow {
+  color: #b7df8a !important;
+  margin-bottom: 16px !important;
+}
+
+.hero.hero--map h1 {
+  max-width: 620px !important;
+  margin: 0 !important;
+  font-size: clamp(54px, 5.5vw, 88px) !important;
+  line-height: 0.98 !important;
+  color: #ffffff !important;
+}
+
+.hero.hero--map h1 em {
+  color: #a9d276 !important;
+}
+
+.hero.hero--map .hero__lead {
+  max-width: 560px !important;
+  margin: 28px 0 32px !important;
+  font-size: clamp(16px, 1.25vw, 19px) !important;
+  line-height: 1.65 !important;
+  color: #d9e7dc !important;
+}
+
+/* RIGHT: large Africa map */
+.hero.hero--map .hero__visual {
+  position: relative !important;
+  z-index: 2 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.hero.hero--map .africa-art {
+  position: relative !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.hero.hero--map .africa-map-wrap {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 920px !important;
+  min-width: 0 !important;
+  margin: 0 auto !important;
+  padding: 0 0 112px !important;
+  overflow: visible !important;
+
+  transform: none !important;
+  translate: none !important;
+  scale: 1 !important;
+}
+
+.hero.hero--map #africa-map {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  height: auto !important;
+  margin: 0 auto !important;
+
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+
+  transform: none !important;
+  translate: none !important;
+  scale: 1 !important;
+  rotate: none !important;
+}
+
+/* Keep tooltip under the map without moving the SVG */
+.hero.hero--map .country-tooltip {
+  position: absolute !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: 4px !important;
+  top: auto !important;
+  width: min(700px, calc(100% - 28px)) !important;
+  max-width: 700px !important;
+  min-width: 0 !important;
+  min-height: 92px !important;
+  transform: translateX(-50%) !important;
+  translate: none !important;
+  margin: 0 !important;
+}
+
+/* Scroll cue remains inside the hero */
+.hero.hero--map .scroll-cue {
+  z-index: 4 !important;
+}
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+@media (min-width: 1400px) {
+  .hero.hero--map .hero__grid--map {
+    grid-template-columns: minmax(440px, 0.72fr) minmax(760px, 1.28fr) !important;
+    gap: 42px !important;
+  }
+
+  .hero.hero--map .africa-map-wrap {
+    max-width: 980px !important;
+  }
+}
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+========================================================= */
+@media (min-width: 769px) and (max-width: 1100px) {
+  .hero.hero--map {
+    min-height: auto !important;
+  }
+
+  .hero.hero--map .hero__grid--map {
+    grid-template-columns: minmax(300px, 0.78fr) minmax(430px, 1.22fr) !important;
+    gap: 18px !important;
+    min-height: auto !important;
+    width: calc(100% - 32px) !important;
+    padding: 52px 0 70px !important;
+  }
+
+  .hero.hero--map h1 {
+    font-size: clamp(46px, 6vw, 68px) !important;
+  }
+
+  .hero.hero--map .hero__lead {
+    font-size: 15px !important;
+  }
+
+  .hero.hero--map .africa-map-wrap {
+    max-width: 720px !important;
+    padding-bottom: 104px !important;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   Text first, map second. No horizontal overflow.
+========================================================= */
+@media (max-width: 768px) {
+  .hero.hero--map {
+    min-height: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .hero.hero--map .hero__pattern {
+    background-size:
+      42px 42px,
+      42px 42px,
+      84px 84px,
+      84px 84px !important;
+  }
+
+  .hero.hero--map .hero__grid--map {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 24px !important;
+    width: calc(100% - 28px) !important;
+    max-width: 100% !important;
+    min-height: auto !important;
+    margin-inline: auto !important;
+    padding: 48px 0 30px !important;
+  }
+
+  .hero.hero--map .hero__copy {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .hero.hero--map h1 {
+    max-width: 100% !important;
+    font-size: clamp(44px, 13.5vw, 68px) !important;
+    line-height: 1 !important;
+  }
+
+  .hero.hero--map .hero__lead {
+    max-width: 560px !important;
+    margin: 22px 0 26px !important;
+    font-size: 16px !important;
+  }
+
+  .hero.hero--map .button-row {
+    gap: 10px !important;
+  }
+
+  .hero.hero--map .hero__visual,
+  .hero.hero--map .africa-art {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .hero.hero--map .africa-map-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    padding: 0 0 112px !important;
+    overflow: visible !important;
+  }
+
+  .hero.hero--map #africa-map {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .hero.hero--map .country-tooltip {
+    left: 8px !important;
+    right: 8px !important;
+    bottom: 4px !important;
+    width: auto !important;
+    max-width: none !important;
+    min-height: 96px !important;
+    transform: none !important;
+    padding: 12px 14px !important;
+  }
+
+  .hero.hero--map .scroll-cue {
+    display: none !important;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+@media (max-width: 480px) {
+  .hero.hero--map .hero__grid--map {
+    width: calc(100% - 20px) !important;
+    padding-top: 38px !important;
+    gap: 18px !important;
+  }
+
+  .hero.hero--map h1 {
+    font-size: clamp(40px, 13vw, 58px) !important;
+  }
+
+  .hero.hero--map .hero__lead {
+    font-size: 14px !important;
+    line-height: 1.55 !important;
+  }
+
+  .hero.hero--map .btn {
+    min-height: 44px !important;
+    padding-inline: 15px !important;
+    font-size: 10px !important;
+  }
+
+  .hero.hero--map .africa-map-wrap {
+    padding-bottom: 118px !important;
+  }
+}
