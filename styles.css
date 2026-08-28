@@ -1598,3 +1598,152 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
     max-width: calc(100% - 8px) !important;
   }
 }
+
+/* =========================================================
+   AFRICA MAP — LARGER RESPONSIVE SIZE
+   Enlarges the actual map area without transform: scale(),
+   so hover, touch, tooltip and mobile width fixes stay intact.
+========================================================= */
+
+/* DESKTOP */
+@media (min-width: 981px) {
+  .map-grid {
+    grid-template-columns: .58fr 1.42fr !important;
+    gap: 36px !important;
+  }
+
+  .map-art {
+    min-height: 780px !important;
+  }
+
+  .africa-map-wrap {
+    width: min(100%, 1450px) !important;
+    max-width: 1450px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+  #africa-map {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .map-art svg {
+    width: 99% !important;
+    height: 99% !important;
+    max-width: none !important;
+  }
+}
+
+/* TABLET */
+@media (min-width: 769px) and (max-width: 980px) {
+  .map-grid {
+    grid-template-columns: 1fr !important;
+    gap: 34px !important;
+  }
+
+  .map-art {
+    min-height: 700px !important;
+  }
+
+  .africa-map-wrap {
+    width: min(100%, 1000px) !important;
+    max-width: 1000px !important;
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+  }
+
+  .map-art svg {
+    width: 99% !important;
+    height: 98% !important;
+    max-width: none !important;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .map-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 24px !important;
+  }
+
+  .map-art {
+    min-height: 560px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .africa-map-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+  }
+
+  #africa-map {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 auto !important;
+  }
+
+  .map-art svg {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+  .map-art {
+    min-height: 520px !important;
+  }
+
+  .africa-map-wrap {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+
+/* =========================================================
+   MOBILE MAP — LOCK PAGE WHILE TOUCHING MAP
+   The page can scroll normally everywhere else.
+   While a finger is on #africa-map, browser panning is disabled.
+========================================================= */
+@media (hover: none) and (pointer: coarse) {
+
+  #africa-map {
+    touch-action: none !important;
+    overscroll-behavior: none !important;
+    -ms-touch-action: none !important;
+
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -webkit-touch-callout: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+
+  #africa-map .country,
+  #africa-map path,
+  #africa-map polygon,
+  #africa-map g {
+    touch-action: none !important;
+    -ms-touch-action: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+
+  /*
+     Important:
+     Do NOT apply touch-action:none to body, the map section,
+     .map-art, or .africa-map-wrap.
+     That allows normal page scrolling as soon as the finger
+     starts outside the actual Africa SVG.
+  */
+}

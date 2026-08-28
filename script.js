@@ -1621,5 +1621,159 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+/* =========================================================
+   AFRICA MAP — MOBILE SCROLL LOCK
 
+   WHAT THIS DOES:
+   - Finger on Africa map = page stays still
+   - Drag across countries = page stays still
+   - Country interaction continues working
+   - Release finger = normal scrolling resumes
+   - Touch outside map = page scrolls normally
+========================================================= */
+
+const africaMapScrollLock = document.querySelector("#africa-map");
+
+if (africaMapScrollLock) {
+
+  let mapTouchActive = false;
+
+  /* Check whether the pointer is a finger or pen */
+  const isTouchLikePointer = (event) => {
+    return (
+      event.pointerType === "touch" ||
+      event.pointerType === "pen"
+    );
+  };
+
+
+  /* =====================================================
+     FINGER TOUCHES THE MAP
+  ===================================================== */
+
+  africaMapScrollLock.addEventListener(
+    "pointerdown",
+    (event) => {
+
+      if (!isTouchLikePointer(event)) return;
+
+      mapTouchActive = true;
+
+      /*
+         Keep tracking the finger even when it moves
+         across country borders or small gaps in the SVG.
+      */
+      try {
+        africaMapScrollLock.setPointerCapture(event.pointerId);
+      } catch (error) {
+        // Browser does not support pointer capture.
+      }
+
+      /*
+         Stop the browser from starting a page scroll.
+      */
+      event.preventDefault();
+    },
+    { passive: false }
+  );
+
+
+  /* =====================================================
+     FINGER MOVES ACROSS THE MAP
+  ===================================================== */
+
+  africaMapScrollLock.addEventListener(
+    "pointermove",
+    (event) => {
+
+      if (!mapTouchActive) return;
+      if (!isTouchLikePointer(event)) return;
+
+      /*
+         IMPORTANT:
+         This prevents the webpage from moving up/down
+         while rubbing your finger across the Africa map.
+      */
+      event.preventDefault();
+    },
+    { passive: false }
+  );
+
+
+  /* =====================================================
+     RELEASE THE MAP
+  ===================================================== */
+
+  const releaseMapTouch = (event) => {
+
+    if (!mapTouchActive) return;
+
+    mapTouchActive = false;
+
+    /*
+       Release pointer capture.
+    */
+    if (
+      event &&
+      typeof event.pointerId !== "undefined"
+    ) {
+
+      try {
+
+        if (
+          africaMapScrollLock.hasPointerCapture(
+            event.pointerId
+          )
+        ) {
+
+          africaMapScrollLock.releasePointerCapture(
+            event.pointerId
+          );
+
+        }
+
+      } catch (error) {
+        // Ignore unsupported browser behaviour.
+      }
+    }
+  };
+
+
+  africaMapScrollLock.addEventListener(
+    "pointerup",
+    releaseMapTouch
+  );
+
+  africaMapScrollLock.addEventListener(
+    "pointercancel",
+    releaseMapTouch
+  );
+
+  africaMapScrollLock.addEventListener(
+    "lostpointercapture",
+    releaseMapTouch
+  );
+
+
+  /* =====================================================
+     MOBILE SAFARI / iPHONE FALLBACK
+  ===================================================== */
+
+  africaMapScrollLock.addEventListener(
+    "touchmove",
+    (event) => {
+
+      /*
+         As long as a finger is touching the Africa SVG,
+         prevent the browser from scrolling the page.
+      */
+      if (event.touches.length > 0) {
+        event.preventDefault();
+      }
+
+    },
+    { passive: false }
+  );
+
+}
 
