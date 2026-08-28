@@ -1233,4 +1233,393 @@ document.addEventListener(
   }
 );
 
+/* =========================================================
+   AFRICA MAP — MOBILE TOUCH / FINGER HOVER
+   ---------------------------------------------------------
+   Allows the user to:
+   - Tap a country
+   - Hold finger down
+   - Drag/rub finger across countries
+   - Show country details like desktop mouse hover
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const map = document.querySelector("#africa-map");
+  const tooltip = document.querySelector(".country-tooltip");
+
+  if (!map || !tooltip) {
+    console.warn("Africa map or country tooltip not found.");
+    return;
+  }
+
+  const countries = map.querySelectorAll(".country");
+
+  let activeCountry = null;
+  let isTouchingMap = false;
+
+
+  /* =====================================================
+     FIND COUNTRY FROM SCREEN POSITION
+  ===================================================== */
+
+  function getCountryFromPoint(x, y) {
+
+    const elements = document.elementsFromPoint(x, y);
+
+    for (const element of elements) {
+
+      if (
+        element &&
+        element.classList &&
+        element.classList.contains("country")
+      ) {
+        return element;
+      }
+
+      const country = element?.closest?.("#africa-map .country");
+
+      if (country) {
+        return country;
+      }
+    }
+
+    return null;
+  }
+
+
+  /* =====================================================
+     GET COUNTRY INFORMATION
+
+     This tries several common data attributes so it
+     should work with your existing SVG structure.
+  ===================================================== */
+
+  function getCountryName(country) {
+
+    return (
+      country.dataset.name ||
+      country.dataset.country ||
+      country.getAttribute("aria-label") ||
+      country.getAttribute("title") ||
+      country.id
+        .replace(/-/g, " ")
+        .replace(/\b\w/g, letter => letter.toUpperCase())
+    );
+  }
+
+
+  function getCountryInfo(country) {
+
+    return (
+      country.dataset.info ||
+      country.dataset.description ||
+      country.dataset.details ||
+      country.dataset.text ||
+      ""
+    );
+  }
+
+
+  function getCountryUrl(country) {
+
+    return (
+      country.dataset.url ||
+      country.dataset.link ||
+      country.dataset.href ||
+      ""
+    );
+  }
+
+
+  /* =====================================================
+     SHOW COUNTRY
+  ===================================================== */
+
+  function showCountry(country) {
+
+    if (!country) return;
+
+    /* Don't keep firing if finger is still on same country */
+    if (activeCountry === country) return;
+
+
+    /* Remove previous active country */
+    countries.forEach(item => {
+      item.classList.remove("is-active");
+    });
+
+
+    /* Activate current country */
+    country.classList.add("is-active");
+
+    activeCountry = country;
+
+
+    /* Get country information */
+    const name = getCountryName(country);
+    const info = getCountryInfo(country);
+    const url = getCountryUrl(country);
+
+
+    /* =================================================
+       UPDATE TOOLTIP
+    ================================================= */
+
+    let html = `<strong>${name}</strong>`;
+
+    if (info) {
+      html += `<span>${info}</span>`;
+    }
+
+    if (url) {
+      html += `<span class="hint">Tap again to view more →</span>`;
+    } else {
+      html += `<span class="hint">Move your finger across the map</span>`;
+    }
+
+    tooltip.innerHTML = html;
+
+
+    /* Show tooltip */
+    tooltip.classList.add("is-visible");
+    tooltip.classList.add("active");
+    tooltip.classList.add("show");
+
+    tooltip.setAttribute("aria-hidden", "false");
+
+
+    /* Optional vibration feedback */
+    if (
+      "vibrate" in navigator &&
+      window.matchMedia("(pointer: coarse)").matches
+    ) {
+      navigator.vibrate(8);
+    }
+  }
+
+
+  /* =====================================================
+     TOUCH START
+  ===================================================== */
+
+  map.addEventListener(
+    "touchstart",
+    event => {
+
+      if (!event.touches.length) return;
+
+      isTouchingMap = true;
+
+      const touch = event.touches[0];
+
+      const country = getCountryFromPoint(
+        touch.clientX,
+        touch.clientY
+      );
+
+      if (country) {
+        showCountry(country);
+      }
+
+    },
+    {
+      passive: true
+    }
+  );
+
+
+  /* =====================================================
+     TOUCH MOVE
+
+     This is the important part.
+
+     As the finger moves across the SVG, we check which
+     country is underneath the finger.
+  ===================================================== */
+
+  map.addEventListener(
+    "touchmove",
+    event => {
+
+      if (!isTouchingMap) return;
+      if (!event.touches.length) return;
+
+      const touch = event.touches[0];
+
+      const country = getCountryFromPoint(
+        touch.clientX,
+        touch.clientY
+      );
+
+      if (country) {
+
+        /*
+         Prevent page scrolling while actually rubbing
+         across countries.
+        */
+
+        event.preventDefault();
+
+        showCountry(country);
+      }
+
+    },
+    {
+      passive: false
+    }
+  );
+
+
+  /* =====================================================
+     TOUCH END
+  ===================================================== */
+
+  map.addEventListener(
+    "touchend",
+    () => {
+
+      isTouchingMap = false;
+
+      /*
+       We intentionally DON'T remove is-active here.
+
+       This means the last country touched stays
+       highlighted and its information remains visible.
+      */
+
+    },
+    {
+      passive: true
+    }
+  );
+
+
+  map.addEventListener(
+    "touchcancel",
+    () => {
+
+      isTouchingMap = false;
+
+    },
+    {
+      passive: true
+    }
+  );
+
+
+  /* =====================================================
+     MOBILE TAP / CLICK
+
+     If the user taps the already selected country again,
+     and it has a URL, go to that country's page.
+  ===================================================== */
+
+  countries.forEach(country => {
+
+    let lastTap = 0;
+
+    country.addEventListener("click", event => {
+
+      const isTouchDevice =
+        window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+
+      if (!isTouchDevice) {
+        return;
+      }
+
+      event.preventDefault();
+
+      const now = Date.now();
+
+      const url = getCountryUrl(country);
+
+
+      /*
+       First tap = show information
+       Second tap = open country page
+      */
+
+      if (
+        activeCountry === country &&
+        now - lastTap < 1500 &&
+        url
+      ) {
+
+        window.location.href = url;
+
+        return;
+      }
+
+
+      showCountry(country);
+
+      lastTap = now;
+
+    });
+
+  });
+
+
+  /* =====================================================
+     POINTER EVENTS SUPPORT
+
+     Helps on newer Android devices, tablets and
+     touch-enabled Windows devices.
+  ===================================================== */
+
+  map.addEventListener("pointerdown", event => {
+
+    if (event.pointerType !== "touch") return;
+
+    isTouchingMap = true;
+
+    const country = getCountryFromPoint(
+      event.clientX,
+      event.clientY
+    );
+
+    if (country) {
+      showCountry(country);
+    }
+
+  });
+
+
+  map.addEventListener("pointermove", event => {
+
+    if (event.pointerType !== "touch") return;
+    if (!isTouchingMap) return;
+
+    const country = getCountryFromPoint(
+      event.clientX,
+      event.clientY
+    );
+
+    if (country) {
+      showCountry(country);
+    }
+
+  });
+
+
+  map.addEventListener("pointerup", event => {
+
+    if (event.pointerType !== "touch") return;
+
+    isTouchingMap = false;
+
+  });
+
+
+  map.addEventListener("pointercancel", event => {
+
+    if (event.pointerType !== "touch") return;
+
+    isTouchingMap = false;
+
+  });
+
+});
+
 
