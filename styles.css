@@ -1251,25 +1251,36 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 
 /* =========================================================
    MOBILE NAVBAR FIXES
-   Added for clean, fixed mobile navigation behaviour.
+   IMPORTANT:
+   The closed menu is NOT translated off-screen.
+   Some mobile browsers count translated fixed elements in the
+   horizontal scrollable area, which creates the large blank area
+   to the right of the page.
 ========================================================= */
 @media (max-width: 760px) {
+
   .site-header {
     position: sticky;
     top: 0;
     z-index: 5000;
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
   }
 
   .nav-wrap {
     min-height: 74px;
     position: relative;
     gap: 14px;
+    width: 100%;
+    max-width: 100%;
   }
 
   .brand {
     position: relative;
     z-index: 5002;
     flex: 0 1 auto;
+    min-width: 0;
   }
 
   .brand img {
@@ -1329,32 +1340,37 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
     gap: 0;
 
     width: 100%;
-    max-width: none;
+    max-width: 100%;
     padding: 20px 22px 40px;
+    overflow-x: hidden;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 
     background: rgba(255,255,255,.99);
     box-shadow: 0 18px 35px rgba(0,0,0,.12);
 
+    /* Closed state: stay in the viewport, just hide it. */
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
-    transform: translateX(100%);
-    transition: transform .28s ease, opacity .2s ease, visibility 0s linear .28s;
+    transform: none !important;
+    translate: none !important;
+    transition: opacity .2s ease, visibility 0s linear .2s;
   }
 
   .main-nav.is-open {
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
-    transform: translateX(0);
-    transition: transform .28s ease, opacity .2s ease;
+    transform: none !important;
+    translate: none !important;
+    transition: opacity .2s ease;
   }
 
   .main-nav > a,
   .main-nav .search-trigger {
     width: 100%;
+    max-width: 100%;
     min-height: 52px;
     display: flex;
     align-items: center;
@@ -1375,7 +1391,6 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 
   body.menu-open {
     overflow: hidden;
-    touch-action: none;
   }
 }
 
@@ -1390,6 +1405,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
     width: 132px;
   }
 }
+
 
 /* =========================================================
    MOBILE MAP TOUCH / DRAG SUPPORT
@@ -1428,78 +1444,157 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
     z-index: 4000;
   }
 }
-/* =========================================================
-   MOBILE — REMOVE RIGHT SIDE OVERFLOW / FLOATING WIDGET
-========================================================= */
 
+/* =========================================================
+   MOBILE WIDTH + AFRICA MAP FINAL FIX
+   This is intentionally last so it wins over earlier rules.
+========================================================= */
 @media (max-width: 768px) {
 
-  html,
+  html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip !important;
+  }
+
   body {
     width: 100%;
     max-width: 100%;
-    overflow-x: hidden !important;
-  }
-
-  body {
+    min-width: 0;
+    overflow-x: clip !important;
     position: relative;
   }
 
-  /*
-     Prevent the website itself from becoming wider
-     than the mobile screen.
-  */
+  /* Do not allow common page wrappers to create a wider canvas. */
   .site-header,
+  .announcement,
   main,
   section,
+  footer,
   .container,
+  .hero,
+  .hero__grid,
   .map-section,
   .map-grid,
   .map-art,
-  .africa-map-wrap {
+  .africa-map-wrap,
+  .partner-section,
+  .newsletter,
+  .site-footer {
+    min-width: 0 !important;
     max-width: 100% !important;
   }
 
-  /*
-     Remove floating social / TikTok style side widgets
-     on mobile.
-  */
+  /* Normal mobile content width. */
+  .container {
+    width: calc(100% - 28px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Map section becomes a single column on mobile. */
+  .map-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 30px !important;
+    width: 100% !important;
+  }
+
+  .map-copy,
+  .map-art {
+    min-width: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Africa map panel stays inside the phone viewport. */
+  .map-art {
+    min-height: 500px;
+    overflow: hidden !important;
+  }
+
+  .africa-map-wrap {
+    position: relative;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 auto !important;
+    padding: 8px 8px 150px !important;
+    overflow: hidden !important;
+  }
+
+  #africa-map {
+    display: block;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    position: relative;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    translate: none !important;
+    scale: 1 !important;
+  }
+
+  /* Preserve finger interaction with individual countries. */
+  #africa-map .country {
+    pointer-events: auto;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transform: none !important;
+    translate: none !important;
+    scale: 1 !important;
+  }
+
+  /* Tooltip stays inside the map panel and cannot widen the page. */
+  .country-tooltip {
+    left: 8px !important;
+    right: 8px !important;
+    bottom: 8px !important;
+    width: auto !important;
+    max-width: calc(100% - 16px) !important;
+    min-width: 0 !important;
+    transform: none !important;
+    translate: none !important;
+    box-sizing: border-box !important;
+    overflow-wrap: anywhere;
+  }
+
+  /* Hide common third-party floating side tabs/widgets on phones. */
   iframe[src*="tiktok"],
+  iframe[src*="social"],
   [class*="tiktok"],
   [id*="tiktok"],
   [class*="floating-social"],
   [class*="social-float"],
   [class*="social-widget"],
   [class*="side-widget"],
-  [class*="floating-widget"] {
+  [class*="floating-widget"],
+  [class*="side-tab"],
+  [class*="floating-tab"] {
     display: none !important;
   }
+}
 
-  /*
-     Make sure the map section uses the FULL mobile width.
-  */
-  .map-grid {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    width: 100% !important;
+@media (max-width: 480px) {
+
+  .container {
+    width: calc(100% - 20px) !important;
   }
 
   .map-art {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
+    min-height: 460px;
   }
 
   .africa-map-wrap {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    padding: 4px 4px 155px !important;
   }
 
-  #africa-map {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
+  .country-tooltip {
+    left: 4px !important;
+    right: 4px !important;
+    bottom: 4px !important;
+    max-width: calc(100% - 8px) !important;
   }
 }
