@@ -1,10 +1,10 @@
 :root {
-  --green: #168A58;
-  --green-dark: #168A58;
-  --green-deep: #168A58;
-  --green-soft: #e8f0df;
-  --red: #d94a38;
-  --cream: #f5f1e7;
+  --green: #176F4D;
+  --green-dark: #176F4D;
+  --green-deep: #176F4D;
+  --green-soft: #F0F3EC;
+  --red: #C95B4B;
+  --cream: #F4F0E7;
   --ink: #17231a;
   --muted: #647064;
   --line: rgba(23,35,26,.14);
@@ -28,17 +28,17 @@ body {
   /* =========================
      MAP COLOURS
   ========================== */
-  --map-border: #b5d98b;
+  --map-border: #B6CDA3;
 
   --northwest-africa: rgba(219, 167, 74, 0.38);
   --north-africa: rgba(224, 119, 91, 0.38);
   --central-africa: rgba(83, 156, 176, 0.38);
   --southern-africa: rgba(117, 170, 94, 0.38);
 
-  --map-hover: #8fcf4f;
+  --map-hover: #7FAE62;
   --map-hover-fill: rgba(143, 207, 79, 0.68);
 
-  --tooltip-bg: #168A58;
+  --tooltip-bg: #176F4D;
   --tooltip-text: #ffffff;
 }
 
@@ -396,7 +396,7 @@ body {
 
   line-height: 1.45;
 
-  color: #e8eee9;
+  color: #E8EFEA;
 }
 
 .country-tooltip .hint {
@@ -655,14 +655,14 @@ body {
 #africa-map #ethiopia,
 #africa-map #nigeria,
 #africa-map #south-africa {
-  fill: #b7ff3c !important;
-  stroke: #f2ffd0 !important;
+  fill: #A7C978 !important;
+  stroke: #EAF2DE !important;
   stroke-opacity: 1 !important;
   stroke-width: 3.2 !important;
 
   filter:
-    drop-shadow(0 0 3px rgba(183, 255, 60, 1))
-    drop-shadow(0 0 9px rgba(183, 255, 60, 0.85)) !important;
+    drop-shadow(0 0 3px rgba(167, 201, 120, .55))
+    drop-shadow(0 0 9px rgba(167, 201, 120, .28)) !important;
 
   transform: none !important;
   translate: none !important;
@@ -672,17 +672,17 @@ body {
 
 /* Ethiopia gets a slightly cyan-green tone so it remains distinct */
 #africa-map #ethiopia {
-  fill: #70f5c8 !important;
-  stroke: #caffee !important;
+  fill: #78BFA9 !important;
+  stroke: #DDF1EA !important;
   filter:
-    drop-shadow(0 0 3px rgba(112, 245, 200, 1))
-    drop-shadow(0 0 9px rgba(112, 245, 200, 0.85)) !important;
+    drop-shadow(0 0 3px rgba(120, 191, 169, .50))
+    drop-shadow(0 0 9px rgba(120, 191, 169, .25)) !important;
 }
 
 /* South Africa gets a brighter warm green */
 #africa-map #south-africa {
-  fill: #d2ff55 !important;
-  stroke: #f5ffc9 !important;
+  fill: #B6CF7A !important;
+  stroke: #EDF2DC !important;
 }
 
 /* =========================================================
@@ -699,14 +699,14 @@ body {
   #africa-map #ethiopia:focus-visible,
   #africa-map #nigeria:focus-visible,
   #africa-map #south-africa:focus-visible {
-    fill: #e4ff86 !important;
+    fill: #C6D99A !important;
     stroke: #ffffff !important;
     stroke-opacity: 1 !important;
     stroke-width: 3.8 !important;
 
     filter:
-      drop-shadow(0 0 4px rgba(228, 255, 134, 1))
-      drop-shadow(0 0 12px rgba(183, 255, 60, 1)) !important;
+      drop-shadow(0 0 4px rgba(198, 217, 154, .55))
+      drop-shadow(0 0 12px rgba(167, 201, 120, .55)) !important;
 
     transform: none !important;
     translate: none !important;
@@ -716,10 +716,10 @@ body {
 
   #africa-map #ethiopia:hover,
   #africa-map #ethiopia:focus-visible {
-    fill: #9ffff0 !important;
+    fill: #A5D5C6 !important;
     filter:
-      drop-shadow(0 0 4px rgba(159, 255, 240, 1))
-      drop-shadow(0 0 12px rgba(112, 245, 200, 1)) !important;
+      drop-shadow(0 0 4px rgba(165, 213, 198, .50))
+      drop-shadow(0 0 12px rgba(120, 191, 169, .50)) !important;
   }
 }
 
@@ -727,14 +727,14 @@ body {
 #africa-map #ethiopia.is-active,
 #africa-map #nigeria.is-active,
 #africa-map #south-africa.is-active {
-  fill: #e4ff86 !important;
+  fill: #C6D99A !important;
   stroke: #ffffff !important;
   stroke-opacity: 1 !important;
   stroke-width: 3.8 !important;
 
   filter:
-    drop-shadow(0 0 4px rgba(228, 255, 134, 1))
-    drop-shadow(0 0 12px rgba(183, 255, 60, 1)) !important;
+    drop-shadow(0 0 4px rgba(198, 217, 154, .55))
+    drop-shadow(0 0 12px rgba(167, 201, 120, .55)) !important;
 
   transform: none !important;
   translate: none !important;
@@ -743,10 +743,10 @@ body {
 }
 
 #africa-map #ethiopia.is-active {
-  fill: #9ffff0 !important;
+  fill: #A5D5C6 !important;
   filter:
-    drop-shadow(0 0 4px rgba(159, 255, 240, 1))
-    drop-shadow(0 0 12px rgba(112, 245, 200, 1)) !important;
+    drop-shadow(0 0 4px rgba(165, 213, 198, .50))
+    drop-shadow(0 0 12px rgba(120, 191, 169, .50)) !important;
 }
 
 /* =========================================================
@@ -865,7 +865,7 @@ button {
 
 .announcement {
   background: var(--green-deep);
-  color: #dfe9d9;
+  color: #E1E9DE;
   font-size: 12px;
   letter-spacing: .04em;
 }
@@ -876,7 +876,7 @@ button {
   justify-content: space-between;
 }
 .announcement a { color: #fff; font-weight: 700; }
-.announcement a span { color: #9cc96a; margin-left: 5px; }
+.announcement a span { color: #A6C48B; margin-left: 5px; }
 
 .site-header {
   position: sticky;
@@ -941,11 +941,11 @@ button {
 }
 .hero__grid { min-height: inherit; display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 60px; padding: 90px 0 100px; position: relative; z-index: 1; }
 .eyebrow { margin: 0 0 16px; font-size: 11px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--green); }
-.hero .eyebrow { color: #b6d98c; }
+.hero .eyebrow { color: #B8CFA5; }
 h1, h2, h3, h4 { font-family: "Manrope", Arial, sans-serif; margin: 0; line-height: 1.06; letter-spacing: -.035em; }
 h1 { font-size: clamp(52px, 7vw, 96px); max-width: 760px; }
-h1 em, h2 em { font-style: normal; color: #a7cf78; }
-.hero__lead { max-width: 610px; font-size: 18px; color: #d8e5d5; margin: 30px 0 34px; }
+h1 em, h2 em { font-style: normal; color: #A8C68C; }
+.hero__lead { max-width: 610px; font-size: 18px; color: #DCE7D9; margin: 30px 0 34px; }
 .button-row { display: flex; flex-wrap: wrap; gap: 12px; }
 .btn {
   min-height: 48px; padding: 0 21px; border: 1px solid transparent;
@@ -956,7 +956,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 .btn:hover { transform: translateY(-2px); }
 .btn span { font-size: 18px; line-height: 0; }
 .btn--primary { background: var(--green); color: #fff; }
-.btn--primary:hover { background: #6da739; }
+.btn--primary:hover { background: #145E42; }
 .btn--light { background: #fff; color: var(--green-dark); }
 .btn--light:hover { background: var(--green-soft); }
 .btn--outline { border-color: rgba(255,255,255,.5); color: #fff; }
@@ -965,7 +965,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 .btn--large { min-height: 58px; padding-inline: 26px; }
 .scroll-cue {
   position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
-  font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: #b7cbb0;
+  font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: #C1CFBC;
   display: flex; gap: 10px; align-items: center;
 }
 .scroll-cue span { color: #fff; font-size: 18px; }
@@ -984,20 +984,20 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 
 .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 50px; margin-bottom: 55px; }
 .section-heading > p { max-width: 430px; margin: 0; color: #aab8a9; }
-.section-heading--light .eyebrow { color: #9fc974; }
-.section-heading--light h2 em { color: #a7cf78; }
+.section-heading--light .eyebrow { color: #A6C48B; }
+.section-heading--light h2 em { color: #A8C68C; }
 .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,.13); }
 .work-card { background: var(--green-dark); min-height: 420px; padding: 34px; position: relative; border: 1px solid rgba(255,255,255,.08); }
-.work-card--accent { background: #168A58; }
+.work-card--accent { background: #176F4D; }
 .work-number { color: #91b46d; font-size: 12px; letter-spacing: .12em; font-weight: 800; }
-.work-card__icon { position: absolute; right: 28px; top: 26px; color: #b4d78d; font-size: 34px; }
+.work-card__icon { position: absolute; right: 28px; top: 26px; color: #B7CFA3; font-size: 34px; }
 .work-card h3 { font-size: 30px; margin-top: 100px; }
 .work-card p { color: #b5c2b3; max-width: 300px; margin-top: 18px; }
 .work-card a { position: absolute; bottom: 30px; left: 34px; color: #fff; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; }
-.work-card a span { color: #a7cf78; font-size: 17px; margin-left: 6px; }
+.work-card a span { color: #A8C68C; font-size: 17px; margin-left: 6px; }
 .section-note { color: #819180; font-size: 11px; margin: 16px 0 0; }
 
-.section--image { background: #e8eee5; }
+.section--image { background: #EEF2EC; }
 .story-card { display: grid; grid-template-columns: 1.1fr .9fr; background: #fff; box-shadow: var(--shadow); }
 .story-image { min-height: 520px; position: relative; overflow: hidden; }
 .story-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
@@ -1009,15 +1009,15 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 
 .impact-band { background: var(--green); color: #fff; padding: 85px 0 75px; }
 .impact-heading { display: flex; justify-content: space-between; align-items: end; gap: 30px; }
-.impact-heading .eyebrow { color: #d0e7b4; }
+.impact-heading .eyebrow { color: #D2E0C7; }
 .impact-heading h2 { font-size: clamp(40px, 4vw, 58px); }
 .stats { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(255,255,255,.3); margin-top: 60px; }
 .stat { padding: 35px 30px 0; border-right: 1px solid rgba(255,255,255,.25); }
 .stat:last-child { border-right: 0; }
 .stat strong { display: block; font: 800 clamp(56px, 7vw, 92px)/.9 "Manrope", sans-serif; letter-spacing: -.06em; }
-.stat strong::after { content: "+"; color: #d2e8b9; }
-.stat span { display: block; margin-top: 14px; color: #e4efdc; font-size: 14px; }
-.stats-note { color: #d5e5cc; opacity: .75; font-size: 11px; margin: 26px 0 0; }
+.stat strong::after { content: "+"; color: #D3E1C9; }
+.stat span { display: block; margin-top: 14px; color: #E5EDE2; font-size: 14px; }
+.stats-note { color: #D6E2D1; opacity: .75; font-size: 11px; margin: 26px 0 0; }
 
 .insights-grid { display: grid; grid-template-columns: 1.15fr .925fr .925fr; gap: 22px; }
 .insight-card { background: #fff; border: 1px solid var(--line); padding-bottom: 28px; transition: transform .25s ease, box-shadow .25s ease; }
@@ -1034,18 +1034,18 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 .flagship { background: #fff; }
 .knowledge-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .knowledge-card { min-height: 360px; padding: 32px; background: var(--green-soft); position: relative; }
-.knowledge-card--red { background: #f4ddd8; }
+.knowledge-card--red { background: #F2E2DE; }
 .knowledge-card--dark { background: var(--green-dark); color: #fff; }
 .knowledge-mark { font: 800 40px/1 "Manrope", sans-serif; color: var(--green); }
 .knowledge-card--red .knowledge-mark { color: var(--red); }
-.knowledge-card--dark .knowledge-mark { color: #a9cf7a; }
+.knowledge-card--dark .knowledge-mark { color: #A8C68C; }
 .knowledge-card h3 { font-size: 30px; margin-top: 110px; max-width: 320px; }
 .knowledge-card p { color: var(--muted); max-width: 300px; }
 .knowledge-card--dark p { color: #b8c7b5; }
 .knowledge-card a { position: absolute; bottom: 30px; left: 32px; color: var(--green); text-transform: uppercase; font-size: 10px; font-weight: 800; letter-spacing: .12em; }
 .knowledge-card--dark a { color: #b8d48f; }
 
-.map-section { background: #edf2e9; }
+.map-section { background: #F0F3EC; }
 .map-grid { display: grid; grid-template-columns: .70fr 1.30fr; gap: 45px; align-items: center; }
 .map-copy > p { max-width: 500px; }
 .region-links { margin: 30px 0 12px; border-top: 1px solid var(--line); }
@@ -1056,10 +1056,10 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 .map-art { min-height: 700px; background: var(--green-dark); position: relative; overflow: hidden; display: grid; place-items: center; }
 .map-grid-lines { position: absolute; inset: 0; opacity: .15; background-image: linear-gradient(rgba(255,255,255,.25) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.25) 1px, transparent 1px); background-size: 50px 50px; }
 .map-art svg { width: 94% !important; height: 94% !important; max-width: none !important; position: relative; z-index: 1; display: block; transform: none !important; translate: none !important; scale: 1 !important; }
-.map-shape { fill: #70a73d; }
-.map-dot { fill: #fff; stroke: #9fd06c; stroke-width: 5; }
+.map-shape { fill: #4F8155; }
+.map-dot { fill: #fff; stroke: #9FBE82; stroke-width: 5; }
 .map-route { fill: none; stroke: #fff; stroke-width: 2; stroke-dasharray: 5 8; opacity: .7; }
-.map-label { position: absolute; z-index: 2; color: #c9dfb3; font-size: 10px; font-weight: 800; letter-spacing: .15em; }
+.map-label { position: absolute; z-index: 2; color: #C7D7BB; font-size: 10px; font-weight: 800; letter-spacing: .15em; }
 .map-label--one { left: 13%; top: 34%; }
 .map-label--two { right: 10%; top: 40%; }
 .map-label--three { left: 25%; bottom: 18%; }
@@ -1073,14 +1073,14 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 
 .newsletter { background: var(--red); color: #fff; padding: 70px 0; }
 .newsletter__inner { display: grid; grid-template-columns: .9fr 1.1fr; gap: 80px; align-items: center; }
-.newsletter .eyebrow { color: #ffd0c9; }
+.newsletter .eyebrow { color: #F7D6D1; }
 .newsletter h2 { font-size: clamp(36px, 4vw, 54px); }
 .newsletter-form { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 10px; }
 .newsletter-form input { min-height: 54px; border: 1px solid rgba(255,255,255,.35); background: rgba(255,255,255,.1); color: #fff; padding: 0 17px; outline: none; }
-.newsletter-form input::placeholder { color: #ffe5e0; }
-.form-message { grid-column: 1 / -1; margin: 0; font-size: 12px; color: #ffe8e3; }
+.newsletter-form input::placeholder { color: #F8E8E5; }
+.form-message { grid-column: 1 / -1; margin: 0; font-size: 12px; color: #F8EAE7; }
 
-.site-footer { background: #168A58; color: #fff; padding: 70px 0 25px; }
+.site-footer { background: #176F4D; color: #fff; padding: 70px 0 25px; }
 .footer-top { display: grid; grid-template-columns: .8fr 1.2fr; gap: 100px; padding-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,.14); }
 .footer-brand img { width: 165px; filter: brightness(0) invert(1); }
 .footer-brand p { color: #EAF8F0; max-width: 220px; }
@@ -1094,7 +1094,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 .socials a { width: 26px; height: 26px; border: 1px solid #BFE8D0; border-radius: 50%; display: grid !important; place-items: center; color: #EAF8F0; }
 
 .search-panel {
-  position: fixed; inset: 0; z-index: 300; background: rgba(22,138,88,.96);
+  position: fixed; inset: 0; z-index: 300; background: rgba(23,111,77,.96);
   color: #fff; opacity: 0; visibility: hidden; transition: .25s ease;
 }
 .search-panel.is-open { opacity: 1; visibility: visible; }
@@ -2002,7 +2002,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 
   .map-copy .eyebrow {
     margin-bottom: 12px !important;
-    color: #b6d98c !important;
+    color: #B8CFA5 !important;
     font-size: 10px !important;
     letter-spacing: .14em !important;
   }
@@ -2048,11 +2048,11 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 
   .region-btn.active,
   .region-btn:hover {
-    color: #b7ff3c !important;
+    color: #A7C978 !important;
   }
 
   .region-status {
-    color: #b7ff3c !important;
+    color: #A7C978 !important;
     font-size: 10px !important;
   }
 
@@ -2107,11 +2107,11 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
     transform: none !important;
     translate: none !important;
     border-color: rgba(183,255,60,.30) !important;
-    background: rgba(22,138,88,.96) !important;
+    background: rgba(23,111,77,.96) !important;
   }
 
   .country-tooltip strong {
-    color: #b7ff3c !important;
+    color: #A7C978 !important;
     font-size: 14px !important;
   }
 
@@ -2228,7 +2228,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
   }
 
   .map-copy h2 em {
-    color: #b7ff3c !important;
+    color: #A7C978 !important;
   }
 
   .map-copy > p {
@@ -2292,7 +2292,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
     border-radius: 7px !important;
     transform: none !important;
     translate: none !important;
-    background: rgba(22,138,88,.96) !important;
+    background: rgba(23,111,77,.96) !important;
   }
 
   .country-tooltip strong {
@@ -2470,11 +2470,11 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 
   .region-btn.active,
   .region-btn:hover {
-    color: #b7ff3c !important;
+    color: #A7C978 !important;
   }
 
   .region-status {
-    color: #b7ff3c !important;
+    color: #A7C978 !important;
     font-size: 9px !important;
   }
 
@@ -2529,7 +2529,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
     padding: 14px 16px !important;
     border: 1px solid rgba(183,255,60,.28) !important;
     border-radius: 8px !important;
-    background: rgba(22,138,88,.96) !important;
+    background: rgba(23,111,77,.96) !important;
     box-shadow: 0 12px 30px rgba(0,0,0,.25) !important;
     transform: none !important;
     translate: none !important;
@@ -2537,7 +2537,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 
   .country-tooltip strong {
     font-size: 13px !important;
-    color: #b7ff3c !important;
+    color: #A7C978 !important;
   }
 
   .country-tooltip span {
@@ -2650,7 +2650,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
   }
 
   .map-copy h2 em {
-    color: #b7ff3c !important;
+    color: #A7C978 !important;
   }
 
   .map-copy > p {
@@ -2716,7 +2716,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
     min-height: 0 !important;
     padding: 8px 9px !important;
     border-radius: 7px !important;
-    background: rgba(22,138,88,.96) !important;
+    background: rgba(23,111,77,.96) !important;
     transform: none !important;
     translate: none !important;
   }
@@ -2787,7 +2787,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
   padding: 0 !important;
   overflow: hidden !important;
   isolation: isolate;
-  background: #168A58 !important;
+  background: #176F4D !important;
   color: #ffffff;
 }
 
@@ -2798,12 +2798,12 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
   z-index: 0 !important;
   opacity: 1 !important;
   pointer-events: none !important;
-  background-color: #168A58 !important;
+  background-color: #176F4D !important;
   background-image:
     linear-gradient(rgba(151, 194, 104, 0.11) 1px, transparent 1px),
     linear-gradient(90deg, rgba(151, 194, 104, 0.11) 1px, transparent 1px),
-    linear-gradient(rgba(22,138,88, 0.14) 50%, transparent 50%),
-    linear-gradient(90deg, rgba(22,138,88, 0.14) 50%, transparent 50%) !important;
+    linear-gradient(rgba(23,111,77, 0.14) 50%, transparent 50%),
+    linear-gradient(90deg, rgba(23,111,77, 0.14) 50%, transparent 50%) !important;
   background-size:
     64px 64px,
     64px 64px,
@@ -3153,7 +3153,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
     scale: 1 !important;
     rotate: none !important;
 
-    background: #168A58 !important;
+    background: #176F4D !important;
     border: 1px solid rgba(181, 217, 139, 0.45) !important;
     box-shadow: 0 18px 40px rgba(0,0,0,.24) !important;
 
@@ -3219,7 +3219,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
     border-radius: 0 !important;
     box-sizing: border-box !important;
     transform: translateY(-50%) !important;
-    background: #168A58 !important;
+    background: #176F4D !important;
     border: 1px solid rgba(181,217,139,.45) !important;
     box-shadow: 0 18px 40px rgba(0,0,0,.24) !important;
     overflow: hidden !important;
@@ -3433,7 +3433,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 ========================================================= */
 
 :root {
-  --map-border: #b5d98b;
+  --map-border: #B6CDA3;
 
   /* Original regional palette */
   --northwest-africa: rgba(219, 167, 74, 0.38);
@@ -3441,10 +3441,10 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
   --central-africa: rgba(83, 156, 176, 0.38);
   --southern-africa: rgba(117, 170, 94, 0.38);
 
-  --map-hover: #8fcf4f;
+  --map-hover: #7FAE62;
   --map-hover-fill: rgba(143, 207, 79, 0.68);
 
-  --tooltip-bg: #168A58;
+  --tooltip-bg: #176F4D;
   --tooltip-text: #ffffff;
 }
 
@@ -3625,7 +3625,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 #africa-map #ethiopia.active,
 #africa-map #nigeria.active,
 #africa-map #south-africa.active {
-  fill: #8fcf4f !important;
+  fill: #7FAE62 !important;
 
   stroke: #ffffff !important;
   stroke-opacity: 1 !important;
@@ -3654,12 +3654,12 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 }
 
 .hero.hero--map .country-tooltip strong {
-  color: #b5d98b !important;
+  color: #B6CDA3 !important;
 }
 
 .hero.hero--map .country-tooltip span,
 .hero.hero--map .country-tooltip p {
-  color: #e8eee9 !important;
+  color: #E8EFEA !important;
 }
 
 .hero.hero--map .country-tooltip .hint {
@@ -4527,7 +4527,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 
   margin: 0;
 
-  color: #d8e5d5;
+  color: #DCE7D9;
 
   font-size: 18px;
   line-height: 1.65;
@@ -4548,7 +4548,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 }
 
 .page-section--soft {
-  background: #edf2e9;
+  background: #F0F3EC;
 }
 
 /* =========================================================
@@ -4657,9 +4657,9 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
   background:
     linear-gradient(
       145deg,
-      #168A58 0%,
-      #168A58 45%,
-      #168A58 100%
+      #176F4D 0%,
+      #176F4D 45%,
+      #176F4D 100%
     );
 
   color: rgba(255,255,255,.14);
@@ -4702,7 +4702,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
   right: 18px;
   top: 18px;
 
-  color: #b6d98c;
+  color: #B8CFA5;
 
   font-family: "DM Sans", sans-serif;
   font-size: 9px;
@@ -4852,7 +4852,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 }
 
 #presence .map-shape {
-  fill: #70a73d;
+  fill: #4F8155;
 
   stroke: #a9ce80;
 
@@ -5209,7 +5209,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 }
 
 .page-hero .eyebrow {
-  color: #b6d98c;
+  color: #B8CFA5;
 }
 
 .page-hero h1 {
@@ -5222,7 +5222,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 }
 
 .page-hero h1 em {
-  color: #a7cf78;
+  color: #A8C68C;
   font-style: normal;
 }
 
@@ -5231,7 +5231,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 
   margin: 0;
 
-  color: #d8e5d5;
+  color: #DCE7D9;
 
   font-size: 18px;
   line-height: 1.65;
@@ -5412,7 +5412,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
   background:
     linear-gradient(
       to top,
-      rgba(22,138,88,.28),
+      rgba(23,111,77,.28),
       transparent 45%
     );
 
@@ -5478,7 +5478,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 ========================================================= */
 
 .page-section--soft {
-  background: #edf2e9;
+  background: #F0F3EC;
 }
 
 .page-section--soft > .container > h2 {
@@ -5934,7 +5934,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 }
 
 .page-hero .eyebrow {
-  color: #b6d98c;
+  color: #B8CFA5;
 }
 
 .page-hero h1 {
@@ -5947,7 +5947,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 }
 
 .page-hero h1 em {
-  color: #a7cf78;
+  color: #A8C68C;
   font-style: normal;
 }
 
@@ -5956,7 +5956,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 
   margin: 0;
 
-  color: #d8e5d5;
+  color: #DCE7D9;
 
   font-size: 18px;
   line-height: 1.65;
@@ -6115,7 +6115,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
   background:
     linear-gradient(
       to top,
-      rgba(22,138,88,.38),
+      rgba(23,111,77,.38),
       transparent 52%
     );
 
@@ -6325,9 +6325,9 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 }
 
 .page-cta .btn--light:hover {
-  background: #b6d98c;
+  background: #B8CFA5;
 
-  border-color: #b6d98c;
+  border-color: #B8CFA5;
 
   color: var(--green-deep);
 }
@@ -6603,7 +6603,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 }
 
 .page-hero .eyebrow {
-  color: #b6d98c;
+  color: #B8CFA5;
 }
 
 .page-hero h1 {
@@ -6616,7 +6616,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 }
 
 .page-hero h1 em {
-  color: #a7cf78;
+  color: #A8C68C;
   font-style: normal;
 }
 
@@ -6625,7 +6625,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 
   margin: 0;
 
-  color: #d8e5d5;
+  color: #DCE7D9;
 
   font-size: 18px;
   line-height: 1.65;
@@ -6830,7 +6830,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
       145deg,
       #5d8f2b 0%,
       #416d29 52%,
-      #168A58 100%
+      #176F4D 100%
     );
 }
 
@@ -6842,7 +6842,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
   background:
     linear-gradient(
       145deg,
-      #d94a38 0%,
+      #C95B4B 0%,
       #b53f31 52%,
       #863025 100%
     );
@@ -6856,9 +6856,9 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
   background:
     linear-gradient(
       145deg,
-      #168A58 0%,
-      #168A58 48%,
-      #168A58 100%
+      #176F4D 0%,
+      #176F4D 48%,
+      #176F4D 100%
     );
 }
 
@@ -6944,7 +6944,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
   background:
     linear-gradient(
       to top,
-      rgba(22,138,88,.36),
+      rgba(23,111,77,.36),
       transparent 50%
     );
 
@@ -7095,9 +7095,9 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 }
 
 .page-cta .btn--light:hover {
-  background: #b6d98c;
+  background: #B8CFA5;
 
-  border-color: #b6d98c;
+  border-color: #B8CFA5;
 
   color: var(--green-deep);
 }
@@ -7421,7 +7421,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 }
 
 .page-hero .eyebrow {
-  color: #b6d98c;
+  color: #B8CFA5;
 }
 
 .page-hero h1 {
@@ -7443,7 +7443,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 
   margin: 0;
 
-  color: #d8e5d5;
+  color: #DCE7D9;
 
   font-size: 18px;
   line-height: 1.65;
@@ -7625,7 +7625,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 }
 
 .partner-option:nth-child(2) .eyebrow {
-  color: #b6d98c;
+  color: #B8CFA5;
 }
 
 .partner-option:nth-child(2) .text-link {
@@ -7637,11 +7637,11 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 }
 
 .partner-option:nth-child(2)::after {
-  background: #b6d98c;
+  background: #B8CFA5;
 }
 
 .partner-option:nth-child(4) {
-  background: #edf2e9;
+  background: #F0F3EC;
 }
 
 /* =========================================================
@@ -8041,7 +8041,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 }
 
 .page-hero .eyebrow {
-  color: #b6d98c;
+  color: #B8CFA5;
 }
 
 .page-hero h1 {
@@ -8054,7 +8054,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 }
 
 .page-hero h1 em {
-  color: #a7cf78;
+  color: #A8C68C;
   font-style: normal;
 }
 
@@ -8063,7 +8063,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 
   margin: 0;
 
-  color: #d8e5d5;
+  color: #DCE7D9;
 
   font-size: 18px;
   line-height: 1.65;
@@ -8245,7 +8245,7 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 }
 
 .partner-option:nth-child(2) .eyebrow {
-  color: #b6d98c;
+  color: #B8CFA5;
 }
 
 .partner-option:nth-child(2) .text-link {
@@ -8257,11 +8257,11 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 }
 
 .partner-option:nth-child(2)::after {
-  background: #b6d98c;
+  background: #B8CFA5;
 }
 
 .partner-option:nth-child(4) {
-  background: #edf2e9;
+  background: #F0F3EC;
 }
 
 /* =========================================================
@@ -8584,10 +8584,10 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
 
 /* =========================================================
    FOOTER CONTRAST — LIGHTER GREEN/WHITE LINKS
-   Keeps footer links readable on the #168A58 background.
+   Keeps footer links readable on the #176F4D background.
 ========================================================= */
 .site-footer {
-  background: #168A58;
+  background: #176F4D;
   color: #FFFFFF;
 }
 
@@ -9087,5 +9087,379 @@ h1 em, h2 em { font-style: normal; color: #a7cf78; }
     min-height: 74px !important;
     padding: 9px 10px !important;
   }
+}
+
+/* =========================================================
+   FINAL GGA COLOUR HARMONY OVERRIDE
+   Balanced, calmer corporate palette across all pages.
+========================================================= */
+:root {
+  --green: #176F4D;
+  --green-dark: #12573F;
+  --green-deep: #0D4433;
+  --green-soft: #EDF2E9;
+
+  --red: #C95B4B;
+  --cream: #F4F0E7;
+
+  --ink: #18231D;
+  --muted: #66726A;
+  --line: rgba(24, 35, 29, .14);
+  --white: #FFFFFF;
+
+  --shadow: 0 18px 50px rgba(18, 48, 35, .10);
+
+  /* Africa map — soft regional tones */
+  --map-border: #A9BE9C;
+  --northwest-africa: rgba(194, 155, 91, .34);
+  --north-africa: rgba(195, 116, 98, .31);
+  --central-africa: rgba(87, 142, 154, .32);
+  --southern-africa: rgba(105, 149, 92, .34);
+
+  --map-hover: #8DB36F;
+  --map-hover-fill: rgba(141, 179, 111, .68);
+
+  --tooltip-bg: #12573F;
+  --tooltip-text: #FFFFFF;
+}
+
+/* Dark green surfaces */
+.hero,
+.page-hero,
+.page-cta,
+.section--dark,
+.map-art,
+.knowledge-card--dark,
+.work-card {
+  background-color: var(--green-dark);
+}
+
+/* Use the main green for brighter branded surfaces */
+.work-card--accent,
+.impact-band,
+.site-footer {
+  background: var(--green);
+}
+
+/* Hero text accents */
+.hero .eyebrow,
+.page-hero .eyebrow,
+.section-heading--light .eyebrow,
+.impact-heading .eyebrow {
+  color: #BFD3AE;
+}
+
+h1 em,
+h2 em,
+.section-heading--light h2 em {
+  color: #A9C68E;
+}
+
+.hero__lead,
+.page-hero p,
+.page-cta p {
+  color: #D9E4DC;
+}
+
+/* Buttons */
+.btn--primary {
+  background: var(--green);
+  color: #FFFFFF;
+}
+
+.btn--primary:hover {
+  background: #105F43;
+}
+
+.btn--light:hover,
+.page-cta .btn--light:hover {
+  background: #E7EFE2;
+  border-color: #E7EFE2;
+  color: var(--green-deep);
+}
+
+/* Links and small accents */
+.text-link,
+.insight-meta,
+.region-btn.active,
+.region-btn:hover,
+.region-status,
+.main-nav > a[aria-current="page"] {
+  color: var(--green);
+}
+
+/* Soft cards and neutral sections */
+.section--cream,
+.partner-section {
+  background: var(--cream);
+}
+
+.section--image,
+.map-section {
+  background: #EFF3ED;
+}
+
+.knowledge-card {
+  background: #EAF0E6;
+}
+
+.knowledge-card--red {
+  background: #F2E2DE;
+}
+
+/* Newsletter retains a warm complementary accent without becoming loud */
+.newsletter {
+  background: var(--red);
+}
+
+.newsletter .eyebrow {
+  color: #F5D9D4;
+}
+
+.newsletter-form input::placeholder,
+.form-message {
+  color: #F8E9E6;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--green);
+  color: #FFFFFF;
+}
+
+.footer-brand p,
+.footer-links a {
+  color: #E6F0EA;
+}
+
+.footer-bottom {
+  color: #D4E5DC;
+}
+
+.socials a {
+  border-color: #AFCFBD;
+  color: #E6F0EA;
+}
+
+.footer-links a:hover,
+.footer-bottom a:hover,
+.socials a:hover {
+  color: #FFFFFF;
+}
+
+.socials a:hover {
+  border-color: #FFFFFF;
+}
+
+/* Search overlay */
+.search-panel {
+  background: rgba(18, 87, 63, .97);
+}
+
+/* Africa map — calmer, more corporate focus states */
+#africa-map .country {
+  stroke: rgba(239, 244, 239, .78) !important;
+}
+
+#africa-map #ghana,
+#africa-map #nigeria {
+  fill: #A7C978 !important;
+  stroke: #EAF2DE !important;
+  filter: drop-shadow(0 0 4px rgba(167, 201, 120, .28)) !important;
+}
+
+#africa-map #ethiopia {
+  fill: #78BFA9 !important;
+  stroke: #DDF1EA !important;
+  filter: drop-shadow(0 0 4px rgba(120, 191, 169, .25)) !important;
+}
+
+#africa-map #south-africa {
+  fill: #B6CF7A !important;
+  stroke: #EDF2DC !important;
+  filter: drop-shadow(0 0 4px rgba(182, 207, 122, .25)) !important;
+}
+
+#africa-map #ghana:hover,
+#africa-map #nigeria:hover,
+#africa-map #ghana:focus-visible,
+#africa-map #nigeria:focus-visible,
+#africa-map #ghana.is-active,
+#africa-map #nigeria.is-active,
+#africa-map #ghana.active,
+#africa-map #nigeria.active {
+  fill: #C2D69A !important;
+  stroke: #FFFFFF !important;
+  filter: none !important;
+}
+
+#africa-map #ethiopia:hover,
+#africa-map #ethiopia:focus-visible,
+#africa-map #ethiopia.is-active,
+#africa-map #ethiopia.active {
+  fill: #9DCCBD !important;
+  stroke: #FFFFFF !important;
+  filter: none !important;
+}
+
+#africa-map #south-africa:hover,
+#africa-map #south-africa:focus-visible,
+#africa-map #south-africa.is-active,
+#africa-map #south-africa.active {
+  fill: #CAD99C !important;
+  stroke: #FFFFFF !important;
+  filter: none !important;
+}
+
+.hero.hero--map .country-tooltip,
+.country-tooltip {
+  background: var(--tooltip-bg) !important;
+  border-color: rgba(182, 205, 163, .34) !important;
+  box-shadow: 0 10px 28px rgba(11, 48, 35, .22) !important;
+}
+
+.hero.hero--map .country-tooltip strong,
+.country-tooltip strong {
+  color: #BCD39E !important;
+}
+
+.hero.hero--map .country-tooltip span,
+.hero.hero--map .country-tooltip p,
+.country-tooltip span {
+  color: #E5EEE8 !important;
+}
+
+/* Checker/grid patterns stay visible but understated */
+.hero__pattern,
+.page-hero::before,
+.page-cta::before {
+  opacity: .055;
+}
+
+/* Accessible focus colour aligned to palette */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #9FBD80;
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   FINAL AFRICA MAP TOOLTIP — WHITE / GREEN
+   Clean white card with GGA green typography.
+========================================================= */
+.hero.hero--map .country-tooltip,
+.country-tooltip {
+  background: #FFFFFF !important;
+  color: #176F4D !important;
+  border: 1px solid rgba(23, 111, 77, .20) !important;
+  box-shadow: 0 10px 28px rgba(13, 68, 51, .16) !important;
+}
+
+.hero.hero--map .country-tooltip strong,
+.country-tooltip strong {
+  color: #12573F !important;
+}
+
+.hero.hero--map .country-tooltip span,
+.hero.hero--map .country-tooltip p,
+.country-tooltip span,
+.country-tooltip p {
+  color: #176F4D !important;
+}
+
+.hero.hero--map .country-tooltip .hint,
+.country-tooltip .hint {
+  color: rgba(23, 111, 77, .72) !important;
+}
+
+/* =========================================================
+   WHERE WE WORK — LIGHTER GREEN
+   Lightens only the map hero section while keeping the
+   overall GGA corporate palette unchanged.
+========================================================= */
+.hero.hero--map {
+  background-color: #23845E !important;
+  background: #23845E !important;
+}
+
+/* Keep the checker/grid visible but subtle on the lighter green. */
+.hero.hero--map .hero__pattern {
+  opacity: .065 !important;
+}
+
+/* Maintain clean contrast on the lighter background. */
+.hero.hero--map .hero__copy,
+.hero.hero--map .hero__copy h1 {
+  color: #FFFFFF !important;
+}
+
+.hero.hero--map .hero__copy .eyebrow {
+  color: #D1E6D9 !important;
+}
+
+.hero.hero--map .hero__lead {
+  color: #EDF5F0 !important;
+}
+
+/* =========================================================
+   FINAL GLOBAL HERO COLOUR
+   Uses the Home page hero green consistently across all
+   page hero sections and hero-style CTA areas.
+========================================================= */
+:root {
+  --hero-green: #23845E;
+}
+
+/* Home page hero */
+.hero,
+.hero.hero--map {
+  background-color: var(--hero-green) !important;
+  background: var(--hero-green) !important;
+}
+
+/* Inner page heroes */
+.page-hero {
+  background-color: var(--hero-green) !important;
+  background: var(--hero-green) !important;
+}
+
+/* Hero-style page CTA sections */
+.page-cta {
+  background-color: var(--hero-green) !important;
+  background: var(--hero-green) !important;
+}
+
+/* Preserve readable white/light typography across all green heroes */
+.hero,
+.hero h1,
+.hero h2,
+.page-hero,
+.page-hero h1,
+.page-hero h2,
+.page-cta,
+.page-cta h1,
+.page-cta h2 {
+  color: #FFFFFF !important;
+}
+
+.hero .eyebrow,
+.page-hero .eyebrow,
+.page-cta .eyebrow {
+  color: #D1E6D9 !important;
+}
+
+.hero__lead,
+.hero p,
+.page-hero p,
+.page-cta p {
+  color: #EDF5F0 !important;
+}
+
+/* Keep grid/checker treatment consistent across hero sections */
+.hero__pattern,
+.page-hero::before,
+.page-cta::before {
+  opacity: .065 !important;
 }
 
