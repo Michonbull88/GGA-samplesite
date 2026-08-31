@@ -442,7 +442,7 @@ const ggaCountries = {
 
     type: "country",
 
-    url: "/countries/nigeria.html"
+    url: "nigeria.html"
 
   }
 

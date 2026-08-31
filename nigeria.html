@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Good Governance Africa — Nigeria research, analysis and publications.">
+  <title>Nigeria | Good Governance Africa</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="nigeria.css">
+</head>
+
+<body>
+  <div class="announcement">
+    <div class="container announcement__inner">
+      <span>Evidence. Action. Better governance.</span>
+      <a href="#newsletter">Join the GGA newsletter <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="Good Governance Africa home">
+        <img src="GGA-logo-Full-Colour-Pantone.png" alt="Good Governance Africa">
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Open navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <a href="our-work.html">Our Work</a>
+        <a href="insights.html" aria-current="page">Insights</a>
+        <a href="impact.html">Impact</a>
+        <a href="about.html">About</a>
+        <a href="partner-with-us.html">Partner With Us</a>
+        <button class="search-trigger" type="button" aria-label="Open search">
+          <span class="search-icon" aria-hidden="true"></span>
+          Search
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="country-hero" aria-labelledby="country-title">
+      <div class="country-grid" aria-hidden="true"></div>
+
+      <div class="container country-hero__grid">
+        <div class="country-map-panel reveal">
+          <div class="country-map-panel__header">
+            <div>
+              <p class="eyebrow">WEST AFRICA</p>
+              <p class="country-map-panel__label">Nigeria</p>
+            </div>
+            <span class="country-code">NGA</span>
+          </div>
+
+          <div class="nigeria-map-wrap">
+            <svg class="nigeria-map" viewBox="300 325 195 135" role="img" aria-labelledby="nigeriaMapTitle nigeriaMapDesc">
+              <title id="nigeriaMapTitle">Map outline of Nigeria</title>
+              <desc id="nigeriaMapDesc">Country outline of Nigeria taken from the Africa map used on the GGA website.</desc>
+              <path d="M326.02,438.22 L326.73,418.28 L326.42,410.41 L328.75,402.61 L332.56,398.81 L338.56,391.16 L337.26,387.83 L339.70,382.85 L336.91,375.51 L337.40,371.40 L338.25,360.35 L341.80,355.37 L343.54,348.25 L346.76,345.58 L360.06,344.11 L372.46,348.73 L377.10,353.40 L383.41,353.61 L389.28,350.57 L404.25,356.97 L410.56,356.67 L417.86,351.39 L425.11,351.77 L428.68,350.03 L435.34,350.75 L444.92,354.36 L454.59,347.45 L457.49,347.94 L465.87,361.48 L468.17,361.21 L473.06,366.14 L471.72,368.37 L471.06,372.49 L460.64,382.06 L457.37,389.95 L455.62,396.38 L453.00,399.14 L450.50,407.80 L443.89,412.90 L441.97,419.16 L439.19,424.14 L438.03,429.28 L429.54,433.45 L422.59,428.37 L417.90,428.57 L410.53,435.81 L406.95,435.93 L401.06,447.86 L397.88,456.62 L385.04,461.07 L380.34,460.42 L375.59,463.19 L365.69,462.92 L359.07,455.18 L354.99,446.23 L346.23,438.08 L336.94,438.23 L326.02,438.22 Z"></path>
+            </svg>
+
+            <div class="map-orbit map-orbit--one"></div>
+            <div class="map-orbit map-orbit--two"></div>
+            <div class="map-pin">
+              <span></span>
+              <small>Abuja</small>
+            </div>
+          </div>
+
+          <div class="country-map-panel__footer">
+            <p>Research, policy insight and governance analysis focused on Nigeria.</p>
+            <a href="#publications">View all publications <span>↓</span></a>
+          </div>
+        </div>
+
+        <article class="latest-publication reveal" id="latestPublication" aria-live="polite">
+          <div class="latest-publication__loading">
+            <span class="loader"></span>
+            <p>Loading latest publication…</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="country-intro">
+      <div class="container country-intro__grid">
+        <div>
+          <p class="eyebrow eyebrow--green">NIGERIA</p>
+          <h2>Evidence for better <em>governance outcomes.</em></h2>
+        </div>
+        <div>
+          <p>
+            This page is designed to connect directly to your CMS. Every publication
+            returned by the API is sorted by publication date, so the newest item is
+            promoted automatically while earlier publications remain available below.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="publications-section" id="publications">
+      <div class="container">
+        <div class="publications-heading">
+          <div>
+            <p class="eyebrow eyebrow--green">LATEST FROM NIGERIA</p>
+            <h2>Publications &amp; analysis</h2>
+          </div>
+
+          <div class="publication-tools">
+            <label class="search-publications">
+              <span class="sr-only">Search publications</span>
+              <input id="publicationSearch" type="search" placeholder="Search publications">
+              <span aria-hidden="true">⌕</span>
+            </label>
+
+            <select id="publicationCategory" aria-label="Filter publications by category">
+              <option value="all">All topics</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="publication-status" id="publicationStatus" aria-live="polite"></div>
+        <div class="publication-list" id="publicationList"></div>
+
+        <div class="load-more-wrap">
+          <button class="btn btn--outline" id="loadMoreBtn" type="button" hidden>
+            Load more publications <span>↓</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="api-note">
+      <div class="container api-note__inner">
+        <div>
+          <p class="eyebrow">CMS READY</p>
+          <h2>One API endpoint. Always current.</h2>
+        </div>
+        <p>
+          Your CMS only needs to return publication data. The JavaScript handles
+          ordering, the featured publication, archive rendering, search, filtering
+          and graceful fallback automatically.
+        </p>
+      </div>
+    </section>
+
+    <section class="newsletter" id="newsletter">
+      <div class="container newsletter__grid">
+        <div>
+          <p class="eyebrow">STAY INFORMED</p>
+          <h2>Governance insight, delivered.</h2>
+        </div>
+        <form class="newsletter-form" id="newsletterForm">
+          <input id="email" type="email" placeholder="Your email address" required>
+          <button class="btn btn--light" type="submit">Subscribe <span>→</span></button>
+          <p class="form-message" id="formMessage" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="footer">
+    <div class="container footer-top">
+      <div class="footer-brand">
+        <img src="gga-logo.svg" alt="Good Governance Africa">
+        <p>Governance that works for Africa.</p>
+      </div>
+
+      <div class="footer-links">
+        <div>
+          <h4>Our Work</h4>
+          <a href="our-work.html">Thematic Areas</a>
+          <a href="our-work.html">Programmes</a>
+          <a href="impact.html">Governance in Action</a>
+        </div>
+        <div>
+          <h4>Insights</h4>
+          <a href="insights.html">Research &amp; Analysis</a>
+          <a href="insights.html">Data &amp; Tools</a>
+          <a href="insights.html">Africa in Fact</a>
+        </div>
+        <div>
+          <h4>About</h4>
+          <a href="about.html">Who We Are</a>
+          <a href="about.html">Team</a>
+          <a href="index.html#home">Where We Work</a>
+        </div>
+        <div>
+          <h4>Connect</h4>
+          <a href="mailto:info@gga.org">Contact</a>
+          <a href="partner-with-us.html">Partner With Us</a>
+          <a href="#newsletter">Newsletter</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <span>© <span id="year"></span> Good Governance Africa</span>
+      <div>
+        <a href="about.html">Privacy</a>
+        <a href="about.html">Governance</a>
+        <a href="about.html">Annual Reports</a>
+      </div>
+      <div class="socials">
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="X">X</a>
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Instagram">ig</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="search-panel" aria-hidden="true">
+    <button class="search-close" type="button" aria-label="Close search">×</button>
+    <form id="searchForm">
+      <label for="siteSearch">Search GGA</label>
+      <div>
+        <input id="siteSearch" type="search" placeholder="What are you looking for?">
+        <button type="submit">Search</button>
+      </div>
+      <p id="searchMessage" aria-live="polite"></p>
+    </form>
+  </div>
+
+  <script src="nigeria.js"></script>
+</body>
+</html>
